@@ -11,7 +11,10 @@ class Client
 	//orthodox
 		Client();
 		~Client();
-
+		
 	//geters
 		int	getFd(void) const;
+		
+	//seters
+		void	setFd(int fd);
 };

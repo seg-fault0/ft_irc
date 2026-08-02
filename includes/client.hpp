@@ -36,4 +36,5 @@ class Client
 	//seters
 		void	setFd(int fd);
 		void	setPass(bool state);
+		void	setNickName(const std::string& nickName);
 };

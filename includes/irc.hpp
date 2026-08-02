@@ -37,6 +37,7 @@ class Irc
 		void createNewClient(void);
 		void deleteClient(int);
 		void manageClients(int);
+		bool searchNickName(const std::string& nickName);
 };
 
 /******************************************/

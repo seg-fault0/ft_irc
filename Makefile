@@ -10,6 +10,7 @@ SRCS =	srcs/main.cpp					\
 		srcs/server/printServerInfo.cpp	\
 		srcs/irc/createClient.cpp		\
 		srcs/irc/deleteClient.cpp		\
+		srcs/irc/search.cpp				\
 		srcs/irc/manageClients.cpp		\
 		srcs/client/orthodox.cpp		\
 		srcs/client/geters.cpp			\

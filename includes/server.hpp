@@ -1,6 +1,7 @@
 #pragma once
 
 # include "irc.hpp"
+
 class Irc;
 
 class Server
@@ -8,6 +9,7 @@ class Server
 	private:
 		int			_port;
 		std::string	_passWord;
+		int			_fd;
 	
 	public:
 	//orthodox

@@ -7,6 +7,9 @@
 //std
 # include <iostream>
 # include <sstream>
+# include <sys/socket.h>
+# include <netinet/in.h>
+# include <unistd.h>
 
 //non std
 # include "exception.hpp"

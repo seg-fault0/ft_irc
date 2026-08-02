@@ -7,5 +7,6 @@ Server::Server()
 
 Server::~Server()
 {
-	
+	if (_fd >= 0)
+		close(_fd);
 }

@@ -1,6 +1,6 @@
 #include "irc.hpp"
 
-void	Manager::manage(int id)
+bool	Manager::manage(int id)
 {
 	char 	buffer[1024];
 	int		clien_fd = id;
@@ -10,8 +10,9 @@ void	Manager::manage(int id)
 	if (bytes <= 0)
 	{
 		std::cout << "client disconnected\n";
-		return;
+		return (false);
 	}
 	buffer[bytes] = '\0';
 	std::cout << "client" << id << " : "<< buffer;
+	return (true);
 }

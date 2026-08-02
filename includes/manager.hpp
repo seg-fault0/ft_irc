@@ -9,5 +9,5 @@ class Manager
 	
 	public:
 		pollfd	createClient(int serverFd);
-		void	manage(int id);
+		bool	manage(int id);
 };

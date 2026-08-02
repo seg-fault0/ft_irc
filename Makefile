@@ -7,8 +7,8 @@ SRCS =	srcs/main.cpp					\
 		srcs/server/geters.cpp			\
 		srcs/server/orthodox.cpp		\
 		srcs/server/printServerInfo.cpp	\
-		srcs/manager/client/create.cpp	\
-		srcs/manager/manage.cpp			\
+		srcs/irc/createClient.cpp		\
+		srcs/irc/manageClients.cpp		\
 		srcs/client/orthodox.cpp		\
 		srcs/client/geters.cpp			\
 		srcs/client/seters.cpp			\
@@ -22,7 +22,7 @@ HEADER = 	includes/irc.hpp		\
 NAME = ircserver
 
 CC = c++
-FLAGS = -std=c++98 -Wall -Wextra -Werror -I includes/
+FLAGS = -I includes/ -std=c++98 #-Wall -Wextra -Werror
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

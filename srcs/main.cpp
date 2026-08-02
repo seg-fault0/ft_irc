@@ -2,12 +2,12 @@
 
 int main(int ac, char** av)
 {
-	Server	server;
+	Irc	irc;
 
 	try
 	{
-		server.init(ac, av);
-		server.run();
+		irc.server.init(irc, ac, av);
+		irc.server.run(irc);
 	}
 	catch(const Exception& e)
 	{

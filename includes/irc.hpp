@@ -19,7 +19,22 @@
 # include "exception.hpp"
 # include "server.hpp"
 # include "client.hpp"
-# include "manager.hpp"
+
+/******************************************/
+/***********       CLASS      *************/
+/******************************************/
+
+class Irc
+{
+	public:
+		Server					server;
+		std::map<int, Client>	clients; 
+		std::vector<pollfd>		pfds;
+	
+	public:
+		void createNewClient(void);
+		void manageClients(int);
+};
 
 /******************************************/
 /***********     PROTOYPES    *************/

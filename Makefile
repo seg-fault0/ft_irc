@@ -5,16 +5,13 @@ SRCS =	srcs/main.cpp					\
 		srcs/other/ft_send.cpp			\
 		srcs/server/init.cpp			\
 		srcs/server/run.cpp				\
-		srcs/server/geters.cpp			\
-		srcs/server/orthodox.cpp		\
+		srcs/server/server.cpp			\
 		srcs/server/printServerInfo.cpp	\
 		srcs/irc/createClient.cpp		\
 		srcs/irc/deleteClient.cpp		\
 		srcs/irc/search.cpp				\
 		srcs/irc/manageClients.cpp		\
-		srcs/client/orthodox.cpp		\
-		srcs/client/geters.cpp			\
-		srcs/client/seters.cpp			\
+		srcs/client/client.cpp			\
 		srcs/client/readBuffer.cpp		\
 		srcs/client/signIn.cpp			\
 

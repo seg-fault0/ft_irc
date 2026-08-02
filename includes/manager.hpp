@@ -8,5 +8,5 @@ class Manager
 		std::map<int, Client>	_clients;
 	
 	public:
-		void	createClient(int serverFd);
+		pollfd	createClient(int serverFd);
 };

@@ -1,6 +1,7 @@
 SRCS =	srcs/main.cpp					\
 		srcs/exception/exception.cpp	\
 		srcs/other/ft_atoi.cpp			\
+		srcs/other/createPfd.cpp		\
 		srcs/server/init.cpp			\
 		srcs/server/run.cpp				\
 		srcs/server/geters.cpp			\

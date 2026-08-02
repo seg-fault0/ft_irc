@@ -7,13 +7,14 @@ class Manager;
 class Server
 {
 	private:
-		int			_port;
-		std::string	_passWord;
-		int			_fd;
+		int						_port;
+		std::string				_passWord;
+		int						_fd;
+		std::vector<pollfd>		_pfds;
 	
 	private:
 		void	printServerInfo(void) const;
-		void	loop(Manager& manager) const;
+		void	loop(Manager& manager);
 
 	public:
 	//orthodox

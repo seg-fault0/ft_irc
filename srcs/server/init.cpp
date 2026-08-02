@@ -42,4 +42,6 @@ void	Server::init(int ac, char** av)
 	_fd = setupSocket();
 	setupBind(_fd, _port);
 	setupListen(_fd);
+
+	_pfds.push_back(createPFD(_fd));
 }

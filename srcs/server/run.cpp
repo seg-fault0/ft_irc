@@ -1,8 +1,20 @@
 #include "irc.hpp"
 
-void	Server::loop(Manager& manager) const
+void	Server::loop(Manager& manager)
 {
-	manager.createClient(_fd);
+	if (poll(_pfds.data(), _pfds.size(), -1) < 0)
+		throw (Exception(WARNING, "server : poll failed"));
+	
+	for (size_t i = 0; i < _pfds.size(); i++)
+	{
+		if (_pfds[i].revents & POLLIN)
+		{
+			if (i == 0)
+				_pfds.push_back(manager.createClient(_fd));
+			else
+				std::cout << "some user said something\n";
+		}
+	}
 }
 
 void	Server::run()
@@ -23,6 +35,5 @@ void	Server::run()
 				throw ;
 			std::cerr << e << std::endl;
 		}
-		
 	}
 }

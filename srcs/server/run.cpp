@@ -14,7 +14,7 @@ void	Server::loop(Manager& manager)
 		{
 			if (i == 0)
 			{
-				new_client = manager.createClient(_fd);
+				new_client = manager.clientCreate(_fd);
 				_pfds.push_back(new_client);
 			}
 			else

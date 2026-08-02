@@ -1,6 +1,6 @@
 #include "irc.hpp"
 
-pollfd	Manager::createClient(int serverFd)
+pollfd	Manager::clientCreate(int serverFd)
 {
 	int	fd = accept(serverFd, NULL, NULL);
 	if (fd < 0)

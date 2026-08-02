@@ -8,6 +8,6 @@ class Manager
 		std::map<int, Client>	_clients;
 	
 	public:
-		pollfd	createClient(int serverFd);
+		pollfd	clientCreate(int serverFd);
 		bool	manage(int id);
 };

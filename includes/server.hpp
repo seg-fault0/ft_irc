@@ -12,6 +12,7 @@ class Server
 		int			_fd;
 	
 	private:
+		void	printServerInfo(void) const;
 		void	loop(Manager& manager) const;
 
 	public:

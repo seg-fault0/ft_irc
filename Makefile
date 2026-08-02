@@ -5,6 +5,7 @@ SRCS =	srcs/main.cpp					\
 		srcs/server/run.cpp				\
 		srcs/server/geters.cpp			\
 		srcs/server/orthodox.cpp		\
+		srcs/server/printServerInfo.cpp	\
 		srcs/manager/createClient.cpp	\
 		srcs/client/geters.cpp			\
 		srcs/client/orthodox.cpp		\

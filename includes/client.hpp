@@ -11,8 +11,7 @@ class Client
 		std::string	_userName;
 		std::string	_hostName;
 		std::string	_realName;
-		bool		_isPassAccepted;
-		bool		_isConnected;
+		bool		_isPassAccepted; 
 		bool		_isRegistered;
 
 	public:
@@ -32,14 +31,7 @@ class Client
 		std::string	getRealName(void) const;
 		bool		isPassAccepted(void) const;
 		bool		isRegistered(void) const;
-		bool		isConnected(void) const;
 
 	//seters
 		void	setFd(int fd);
-		void	setNickName(const std::string& name);
-		void	setUserName(const std::string& name);
-		void	setHostName(const std::string& name);
-		void	setRealName(const std::string& name);
-		void	setConnected(bool state);
-		void	setRegistered(bool state);
 };

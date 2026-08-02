@@ -38,6 +38,7 @@ void	Server::init(Irc& irc, int ac, char** av)
 		throw (Exception(ERROR, "port : bad port"));
 
 	_passWord = av[2];
+	_passWord += "\n";
 
 	_fd = setupSocket();
 	setupBind(_fd, _port);

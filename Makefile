@@ -2,6 +2,7 @@ SRCS =	srcs/main.cpp					\
 		srcs/exception/exception.cpp	\
 		srcs/other/ft_atoi.cpp			\
 		srcs/other/createPfd.cpp		\
+		srcs/other/ft_send.cpp			\
 		srcs/server/init.cpp			\
 		srcs/server/run.cpp				\
 		srcs/server/geters.cpp			\
@@ -14,6 +15,7 @@ SRCS =	srcs/main.cpp					\
 		srcs/client/geters.cpp			\
 		srcs/client/seters.cpp			\
 		srcs/client/readBuffer.cpp		\
+		srcs/client/signIn.cpp			\
 
 HEADER = 	includes/irc.hpp		\
 			includes/exception.hpp	\

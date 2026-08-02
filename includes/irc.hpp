@@ -44,4 +44,5 @@ class Irc
 /******************************************/
 
 int		ft_atoi(const std::string& str);
+int		ft_send(int fd, const std::string& msg);
 pollfd	createPFD(int fd);

@@ -8,6 +8,8 @@ void Irc::manageClients(int i)
 
 	if (client.getBuffer().empty())
 		deleteClient(i);
+	else if (!client.isRegistered())
+		client.signIn(*this);
 	else
 		std::cout << "client " << i << ": " << client.getBuffer();
 }

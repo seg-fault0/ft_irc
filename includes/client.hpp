@@ -21,6 +21,7 @@ class Client
 	
 	//methods
 		void	readBuffer(void);
+		void	signIn(Irc& irc);
 	
 	//geters
 		int			getFd(void) const;
@@ -34,4 +35,5 @@ class Client
 
 	//seters
 		void	setFd(int fd);
+		void	setPass(bool state);
 };

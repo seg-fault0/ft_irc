@@ -1,8 +1,14 @@
 SRCS =	srcs/main.cpp					\
 		srcs/exception/exception.cpp	\
+		srcs/other/ft_atoi.cpp			\
+		srcs/server/init.cpp			\
+		srcs/server/run.cpp				\
+		srcs/server/geters.cpp			\
+		srcs/server/orthodox.cpp		\
 
 HEADER = 	includes/irc.hpp		\
 			includes/exception.hpp	\
+			includes/server.hpp		\
 
 NAME = ircserver
 

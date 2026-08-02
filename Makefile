@@ -1,11 +1,13 @@
-SRCS =	srcs/main.cpp	\
+SRCS =	srcs/main.cpp					\
+		srcs/exception/exception.cpp	\
 
-HEADER = includes/irc.hpp	\
+HEADER = 	includes/irc.hpp		\
+			includes/exception.hpp	\
 
 NAME = ircserver
 
 CC = c++
-FLAGS = -std=c++98 -Wall -Wextra -Werror -Iincludes
+FLAGS = -std=c++98 -Wall -Wextra -Werror -I includes/
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

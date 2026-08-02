@@ -16,13 +16,7 @@
 # include "server.hpp"
 
 /******************************************/
-/***********       CLASS      *************/
+/***********     PROTOYPES    *************/
 /******************************************/
-
-class Irc
-{
-	public:
-		Server	server;
-};
 
 int	ft_atoi(const std::string& str);

@@ -2,8 +2,6 @@
 
 # include "irc.hpp"
 
-class Irc;
-
 class Server
 {
 	private:
@@ -18,7 +16,7 @@ class Server
 	
 	//methods
 		void	init(int ac, char** av);
-		void	run(Irc& irc);
+		void	run(void);
 	
 	//geters
 		int			getPort(void) const ;

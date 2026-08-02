@@ -35,6 +35,7 @@ class Irc
 	
 	public:
 		void createNewClient(void);
+		void deleteClient(int);
 		void manageClients(int);
 };
 

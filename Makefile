@@ -8,6 +8,7 @@ SRCS =	srcs/main.cpp					\
 		srcs/server/orthodox.cpp		\
 		srcs/server/printServerInfo.cpp	\
 		srcs/irc/createClient.cpp		\
+		srcs/irc/deleteClient.cpp		\
 		srcs/irc/manageClients.cpp		\
 		srcs/client/orthodox.cpp		\
 		srcs/client/geters.cpp			\
@@ -17,7 +18,6 @@ SRCS =	srcs/main.cpp					\
 HEADER = 	includes/irc.hpp		\
 			includes/exception.hpp	\
 			includes/server.hpp		\
-			includes/manager.hpp	\
 			includes/client.hpp		\
 
 NAME = ircserver

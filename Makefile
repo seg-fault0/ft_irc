@@ -5,10 +5,15 @@ SRCS =	srcs/main.cpp					\
 		srcs/server/run.cpp				\
 		srcs/server/geters.cpp			\
 		srcs/server/orthodox.cpp		\
+		srcs/manager/createClient.cpp	\
+		srcs/client/geters.cpp			\
+		srcs/client/orthodox.cpp		\
 
 HEADER = 	includes/irc.hpp		\
 			includes/exception.hpp	\
 			includes/server.hpp		\
+			includes/manager.hpp	\
+			includes/client.hpp		\
 
 NAME = ircserver
 

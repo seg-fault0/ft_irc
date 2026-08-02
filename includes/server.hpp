@@ -2,6 +2,8 @@
 
 # include "irc.hpp"
 
+class Manager;
+
 class Server
 {
 	private:
@@ -9,6 +11,9 @@ class Server
 		std::string	_passWord;
 		int			_fd;
 	
+	private:
+		void	loop(Manager& manager) const;
+
 	public:
 	//orthodox
 		Server();

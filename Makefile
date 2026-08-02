@@ -12,6 +12,7 @@ SRCS =	srcs/main.cpp					\
 		srcs/client/orthodox.cpp		\
 		srcs/client/geters.cpp			\
 		srcs/client/seters.cpp			\
+		srcs/client/readBuffer.cpp		\
 
 HEADER = 	includes/irc.hpp		\
 			includes/exception.hpp	\

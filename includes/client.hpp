@@ -6,6 +6,7 @@ class Client
 {
 	private:
 		int			_fd;
+		std::string	_buffer;
 		std::string	_nickName;
 		std::string	_userName;
 		std::string	_hostName;
@@ -18,9 +19,13 @@ class Client
 	//orthodox
 		Client();
 		~Client();
-		
+	
+	//methods
+		void	readBuffer(void);
+	
 	//geters
 		int			getFd(void) const;
+		std::string	getBuffer(void);
 		std::string	getNickName(void) const;
 		std::string	getUserName(void) const;
 		std::string	getHostName(void) const;

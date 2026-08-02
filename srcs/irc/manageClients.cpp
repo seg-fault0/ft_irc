@@ -2,17 +2,15 @@
 
 void Irc::manageClients(int i)
 {
-	int		client_fd = pfds[i].fd;
-	char 	buffer[1024];
+	Client&	client = clients[pfds[i].fd];
 
-	int bytes = recv(client_fd, buffer, sizeof(buffer) - 1, 0);
-
-	if (bytes <= 0)
+	client.readBuffer();
+	if (client.getBuffer().empty())
 	{
-		std::cout << "client disconnected\n";
-		pfds.erase(pfds.begin() + i);
-		return ;
+		std::cout << "client " << i << "left\n";
+		clients.erase(client.getFd());
+		pfds.erase(pfds.begin() + 1);
 	}
-	buffer[bytes] = '\0';
-	std::cout << "client" << client_fd << " : "<< buffer;
+	else
+		std::cout << "client " << i << ": " << client.getBuffer() << "\n";
 }

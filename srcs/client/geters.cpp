@@ -16,3 +16,4 @@ bool		Client::isRegistered(void) const { return(_isRegistered); }
 
 bool		Client::isConnected(void) const { return(_isConnected); }
 
+std::string	Client::getBuffer(void) { return (_buffer); }

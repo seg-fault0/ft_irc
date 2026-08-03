@@ -24,7 +24,7 @@ class Server
 	
 	//methods
 		void	init(int ac, char** av);
-		void	run();
+		void	lunch();
 		void	createNewClient(void);
 		bool	searchNickName(const std::string& nickName);
 		void	deleteClient(Client& client);

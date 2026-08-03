@@ -7,7 +7,7 @@ int main(int ac, char** av)
 	try
 	{
 		server.init(ac, av);
-		server.run();
+		server.lunch();
 	}
 	catch(const Exception& e)
 	{

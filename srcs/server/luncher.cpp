@@ -1,5 +1,12 @@
 #include "irc.hpp"
 
+void	Server::printServerInfo(void) const
+{
+	std::cout << "*******  WELCOM TO IRC SERVER ***********\n";
+	std::cout << "Port = " << _port << std::endl;
+	std::cout << "Pass Word = " << _passWord << std::endl;
+}
+
 void	Server::loop()
 {
 	if (poll(_pfds.data(), _pfds.size(), -1) < 0)
@@ -17,7 +24,7 @@ void	Server::loop()
 	}
 }
 
-void	Server::run()
+void	Server::lunch()
 {
 	printServerInfo();
 

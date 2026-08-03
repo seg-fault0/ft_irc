@@ -1,12 +1,10 @@
 SRCS =	srcs/main.cpp					\
 		srcs/exception/exception.cpp	\
 		srcs/other/ft_atoi.cpp			\
-		srcs/other/createPfd.cpp		\
-		srcs/other/ft_send.cpp			\
+		srcs/other/network.cpp			\
 		srcs/server/init.cpp			\
-		srcs/server/run.cpp				\
+		srcs/server/luncher.cpp			\
 		srcs/server/server.cpp			\
-		srcs/server/printServerInfo.cpp	\
 		srcs/server/clients/create.cpp	\
 		srcs/server/clients/delete.cpp	\
 		srcs/server/clients/search.cpp	\

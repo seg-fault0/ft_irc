@@ -14,7 +14,7 @@ class Server
 		std::vector<pollfd>		_pfds;
 
 	private:
-		void	printServerInfo(void) const;
+		void	banner(void) const;
 		void	loop();
 
 	public:

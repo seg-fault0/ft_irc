@@ -5,6 +5,7 @@ SRCS =	srcs/main.cpp					\
 		srcs/other/ft_atoi.cpp			\
 		srcs/other/network.cpp			\
 		srcs/other/ft_split.cpp			\
+		srcs/other/paintStr.cpp			\
 										\
 		srcs/server/init.cpp			\
 		srcs/server/luncher.cpp			\
@@ -17,7 +18,7 @@ SRCS =	srcs/main.cpp					\
 		srcs/client/client.cpp			\
 		srcs/client/readBuffer.cpp		\
 		srcs/client/signIn.cpp			\
-		srcs/client/manager.cpp
+		srcs/client/manager.cpp			\
 
 HEADER =	includes/irc.hpp		\
 			includes/exception.hpp	\

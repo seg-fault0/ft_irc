@@ -1,10 +1,15 @@
 #include "irc.hpp"
 
-void	Server::printServerInfo(void) const
+void Server::banner(void) const
 {
-	std::cout << "*******  WELCOM TO IRC SERVER ***********\n";
-	std::cout << "Port = " << _port << std::endl;
-	std::cout << "Pass Word = " << _passWord << std::endl;
+	std::cout << "\n";
+	std::cout << paintStr(color::blue,"╔══════════════════════════════════════════════╗\n");
+	std::cout << paintStr(color::blue,"║               FT_IRC SERVER                  ║\n");
+	std::cout << paintStr(color::blue,"╠══════════════════════════════════════════════╣\n");
+	std::cout << paintStr(color::blue,"║ Port     : ") << _port << "\n";
+	std::cout << paintStr(color::blue,"║ Password : ") << _passWord;
+	std::cout << paintStr(color::blue,"╚══════════════════════════════════════════════╝\n");
+	std::cout << std::endl;
 }
 
 void	Server::loop()
@@ -26,7 +31,7 @@ void	Server::loop()
 
 void	Server::lunch()
 {
-	printServerInfo();
+	banner();
 
 	while (true)
 	{

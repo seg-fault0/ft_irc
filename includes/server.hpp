@@ -1,9 +1,11 @@
 #pragma once
 
 # include "irc.hpp"
-# include "log.hpp"
 
 class Client;
+
+# define RESPOND 1
+# define REQUEST 2
 
 class Server
 {
@@ -17,9 +19,6 @@ class Server
 		private:
 		void	banner(void) const;
 		void	loop();
-		
-	public:
-			Log	log;
 
 	public:
 	//orthodox
@@ -32,6 +31,7 @@ class Server
 		void	createNewClient(void);
 		bool	searchNickName(const std::string& nickName);
 		void	deleteClient(Client& client);
+		void	log(int type, Client& client, const std::string& msg);
 
 	//geters
 		int			getPort(void) const ;

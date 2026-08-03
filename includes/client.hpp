@@ -20,7 +20,7 @@ class Client
 		~Client();
 	
 	//methods
-		void	readBuffer(void);
+		void	readBuffer(Server& server);
 		void	signIn(Server& server);
 		void	manager(Server& server);
 	

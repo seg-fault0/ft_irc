@@ -2,12 +2,12 @@
 
 void	Client::manager(Server& server)
 {
-	readBuffer();
+	readBuffer(server);
 
 	if (_buffer.empty())
 		server.deleteClient(*this);
 	else if (!_isRegistered)
 		signIn(server);
 	else
-		server.log.add(*this, _buffer);
+		server.log(RESPOND, *this, "responding ...\n");
 }

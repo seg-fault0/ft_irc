@@ -1,6 +1,6 @@
 #include "client.hpp"
 
-void	Client::readBuffer(void)
+void	Client::readBuffer(Server& server)
 {
 	_buffer.clear();
 	_cmds.clear();
@@ -15,4 +15,6 @@ void	Client::readBuffer(void)
 	
 	_buffer = buffer;
 	_cmds = ft_split(_buffer, ' ');
+
+	server.log(REQUEST, *this, _buffer);
 }

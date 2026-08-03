@@ -8,11 +8,11 @@ static void handlePass(Server& server, Client& client)
 	if (client.isPassAccepted() == true)
 		return ;
 	else if(pass != server.getPassWord())
-		server.log.add(client, "wrong pass word");
+		server.log(RESPOND, client, "bad pass word");
 	else
 	{
 		client.setPass(true);
-		server.log.add(client, "entered right pass word");
+		server.log(RESPOND, client, "good pass word");
 	}
 }
 
@@ -21,15 +21,18 @@ static void	handleNick(Server& server, Client& client)
 	std::string	nick = client.getCmd(1);
 
 	if (server.searchNickName(nick) == true)
-		server.log.add(client, "nick name already taken");
+		server.log(RESPOND, client, "nick name already taken");
 	else
+	{
+		server.log(RESPOND, client, "good nick name");
 		client.setNickName(nick);
+	}
 }
 
 static void handleUser(Server& server, Client& client)
 {
 	if (client.getAllCmd().size() < 5 || client.getCmd(4)[0] != ':')
-		server.log.add(client, "bad args");
+		server.log(RESPOND, client, "bad args");
 	else
 	{
 		client.setUserName(client.getCmd(1));
@@ -41,6 +44,7 @@ static void handleUser(Server& server, Client& client)
 				tmp += " ";
 		}
 		client.setRealName(tmp);
+		server.log(RESPOND, client, "good user/real name");
 	}
 }
 
@@ -53,12 +57,12 @@ void Client::signIn(Server& server)
 	else if (_cmds[0] == "USER")
 		handleUser(server, *this);
 	else
-		server.log	.add(*this, "wrong command");
+		server.log(RESPOND, *this, "wrong command");
 
 	if (_isPassAccepted == true && !_nickName.empty()
 		&& !_userName.empty() && !_realName.empty())
 	{
 		_isRegistered = true;
-		server.log.add(server, "new user registered");
+		server.log(RESPOND, *this, "new user registered");
 	}
 }

@@ -2,7 +2,7 @@
 
 static void handlePass(Server& server, Client& client)
 {
-	std::string	pass = client.getBuffer()[1];
+	std::string	pass = client.getCmd(1);
 	int			fd = client.getFd();
 
 	if (client.isPassAccepted() == true)
@@ -18,7 +18,7 @@ static void handlePass(Server& server, Client& client)
 
 static void	handleNick(Server& server, Client& client)
 {
-	std::string	nick = client.getBuffer()[1];
+	std::string	nick = client.getCmd(1);
 
 	if (server.searchNickName(nick) == true)
 		server.log.add(client, "nick name already taken");
@@ -28,16 +28,16 @@ static void	handleNick(Server& server, Client& client)
 
 static void handleUser(Server& server, Client& client)
 {
-	if (client.getBuffer().size() < 5 || client.getBuffer(4)[0] != ':')
+	if (client.getAllCmd().size() < 5 || client.getCmd(4)[0] != ':')
 		server.log.add(client, "bad args");
 	else
 	{
-		client.setUserName(client.getBuffer()[1]);
+		client.setUserName(client.getCmd(1));
 		std::string tmp;
-		for(int i = 4; i < client.getBuffer().size(); i++)
+		for(int i = 4; i < client.getAllCmd().size(); i++)
 		{
-			tmp += client.getBuffer(i);
-			if (i + 1 < client.getBuffer().size())
+			tmp += client.getCmd(i);
+			if (i + 1 < client.getAllCmd().size())
 				tmp += " ";
 		}
 		client.setRealName(tmp);
@@ -46,16 +46,14 @@ static void handleUser(Server& server, Client& client)
 
 void Client::signIn(Server& server)
 {
-	std::string& cmd = _buffer[0];
-
-	if (cmd == "PASS")
+	if (_cmds[0] == "PASS")
 		handlePass(server,*this);
-	else if (cmd == "NICK")
+	else if (_cmds[0] == "NICK")
 		handleNick(server, *this);
-	else if (cmd == "USER")
+	else if (_cmds[0] == "USER")
 		handleUser(server, *this);
 	else
-		server.log.add(*this, "wrong command");
+		server.log	.add(*this, "wrong command");
 
 	if (_isPassAccepted == true && !_nickName.empty()
 		&& !_userName.empty() && !_realName.empty())

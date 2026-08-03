@@ -24,9 +24,12 @@ std::string	Client::getUserName(void) const { return(_userName); }
 
 std::string	Client::getRealName(void) const { return(_realName); }
 
-std::string Client::getBuffer(int i) const { return (_buffer[i]); };
+std::string					Client::getBuffer(void) const { return (_buffer); }
 
-std::vector<std::string>	Client::getBuffer(void) const { return (_buffer); }
+std::vector<std::string>	Client::getAllCmd(void) const{ return (_cmds); }
+
+std::string					Client::getCmd(int i) const { return (_cmds[i]); }
+
 
 bool		Client::isPassAccepted(void) const { return(_isPassAccepted); }
 

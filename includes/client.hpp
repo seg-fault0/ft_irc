@@ -6,7 +6,8 @@ class Client
 {
 	private:
 		int							_fd;
-		std::vector<std::string>	_buffer;
+		std::string					_buffer;
+		std::vector<std::string>	_cmds;
 		std::string					_nickName;
 		std::string					_userName;
 		std::string					_realName;
@@ -25,8 +26,9 @@ class Client
 	
 	//geters
 		int							getFd(void) const;
-		std::vector<std::string>	getBuffer(void) const;
-		std::string					getBuffer(int) const;
+		std::string					getBuffer(void) const;
+		std::vector<std::string>	getAllCmd(void) const;
+		std::string					getCmd(int) const ;
 		std::string					getNickName(void) const;
 		std::string					getUserName(void) const;
 		std::string					getRealName(void) const;

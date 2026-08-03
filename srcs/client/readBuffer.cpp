@@ -3,6 +3,7 @@
 void	Client::readBuffer(void)
 {
 	_buffer.clear();
+	_cmds.clear();
 	
 	char 	buffer[1024];
 	int bytes = recv(_fd, buffer, sizeof(buffer) - 1, 0);
@@ -12,5 +13,6 @@ void	Client::readBuffer(void)
 
 	buffer[bytes] = '\0';
 	
-	_buffer = ft_split(buffer, ' ');
+	_buffer = buffer;
+	_cmds = ft_split(_buffer, ' ');
 }

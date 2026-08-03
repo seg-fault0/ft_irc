@@ -30,7 +30,7 @@ bool		Client::isPassAccepted(void) const { return(_isPassAccepted); }
 
 bool		Client::isRegistered(void) const { return(_isRegistered); }
 
-std::string	Client::getBuffer(void) { return (_buffer); }
+std::string	Client::getBuffer(int i) { return (_buffer[i]); }
 
 /******************************************/
 /***********       SETERS     *************/

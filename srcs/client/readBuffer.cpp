@@ -11,5 +11,6 @@ void	Client::readBuffer(void)
 		return ;
 
 	buffer[bytes] = '\0';
-	_buffer = buffer;
+	
+	_buffer = ft_split(buffer, ' ');
 }

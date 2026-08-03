@@ -9,5 +9,5 @@ void	Client::manager(Server& server)
 	else if (!_isRegistered)
 		signIn(server);
 	else
-		std::cout << "client " << _fd << ": " << _buffer;
+		std::cout << "client " << _fd << ": " << _buffer[0];
 }

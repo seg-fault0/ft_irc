@@ -2,7 +2,7 @@
 
 static void handlePass(Server& server, Client& client)
 {
-	std::string	pass = client.getBuffer().substr(5);
+	std::string	pass = client.getBuffer(1);
 	int			fd = client.getFd();
 
 	if (client.isPassAccepted() == true)
@@ -18,7 +18,7 @@ static void handlePass(Server& server, Client& client)
 
 static void	handleNick(Server& server, Client& client)
 {
-	std::string	nick = client.getBuffer().substr(5);
+	std::string	nick = client.getBuffer(1);
 
 	if (server.searchNickName(nick) == true)
 		ft_send(client.getFd(), "ERROR : client already exists\n");
@@ -28,9 +28,9 @@ static void	handleNick(Server& server, Client& client)
 
 void Client::signIn(Server& server)
 {
-	if (_buffer.compare(0, 4, "PASS") == 0)
+	if (_buffer[0] == "PASS")
 		handlePass(server,*this);
-	else if (_buffer.compare(0, 4, "NICK") == 0)
+	else if (_buffer[0] == "NICK")
 		handleNick(server, *this);
 	else
 		ft_send(_fd, "wrong command\n");

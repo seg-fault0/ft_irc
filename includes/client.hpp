@@ -5,14 +5,14 @@
 class Client
 {
 	private:
-		int			_fd;
-		std::string	_buffer;
-		std::string	_nickName;
-		std::string	_userName;
-		std::string	_hostName;
-		std::string	_realName;
-		bool		_isPassAccepted; 
-		bool		_isRegistered;
+		int							_fd;
+		std::vector<std::string>	_buffer;
+		std::string					_nickName;
+		std::string					_userName;
+		std::string					_hostName;
+		std::string					_realName;
+		bool						_isPassAccepted; 
+		bool						_isRegistered;
 
 	public:
 	//orthodox
@@ -26,7 +26,7 @@ class Client
 	
 	//geters
 		int			getFd(void) const;
-		std::string	getBuffer(void);
+		std::string	getBuffer(int);
 		std::string	getNickName(void) const;
 		std::string	getUserName(void) const;
 		std::string	getHostName(void) const;

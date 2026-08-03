@@ -1,13 +1,19 @@
 SRCS =	srcs/main.cpp					\
+										\
 		srcs/exception/exception.cpp	\
+										\
 		srcs/other/ft_atoi.cpp			\
 		srcs/other/network.cpp			\
+		srcs/other/ft_split.cpp			\
+										\
 		srcs/server/init.cpp			\
 		srcs/server/luncher.cpp			\
 		srcs/server/server.cpp			\
+										\
 		srcs/server/clients/create.cpp	\
 		srcs/server/clients/delete.cpp	\
 		srcs/server/clients/search.cpp	\
+										\
 		srcs/client/client.cpp			\
 		srcs/client/readBuffer.cpp		\
 		srcs/client/signIn.cpp			\

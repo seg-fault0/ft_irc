@@ -24,6 +24,7 @@
 /***********     PROTOYPES    *************/
 /******************************************/
 
-int		ft_atoi(const std::string& str);
-int		ft_send(int fd, const std::string& msg);
-pollfd	createPFD(int fd);
+int							ft_atoi(const std::string& str);
+int							ft_send(int fd, const std::string& msg);
+pollfd						createPFD(int fd);
+std::vector<std::string>	ft_split(const std::string &str, char delimiter);

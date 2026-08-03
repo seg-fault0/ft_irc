@@ -13,31 +13,34 @@ SRCS =	srcs/main.cpp					\
 		srcs/client/client.cpp			\
 		srcs/client/readBuffer.cpp		\
 		srcs/client/signIn.cpp			\
-		srcs/client/manager.cpp			\
+		srcs/client/manager.cpp
 
-HEADER = 	includes/irc.hpp		\
+HEADER =	includes/irc.hpp		\
 			includes/exception.hpp	\
 			includes/server.hpp		\
-			includes/client.hpp		\
+			includes/client.hpp
 
 NAME = ircserver
 
 CC = c++
 FLAGS = -I includes/ -std=c++98 #-Wall -Wextra -Werror
-OBJS = $(SRCS:.cpp=.o)
+
+OBJDIR = obj
+OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
 
-$(NAME) : $(OBJS)
+$(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $@
 
-%.o : %.cpp $(HEADER)
+$(OBJDIR)/%.o: %.cpp $(HEADER)
+	@mkdir -p $(dir $@)
 	$(CC) $(FLAGS) -c $< -o $@
 
-clean :
-	rm -f $(OBJS)
+clean:
+	rm -rf $(OBJDIR)
 
-fclean : clean
+fclean: clean
 	rm -f $(NAME)
 
-re : fclean all
+re: fclean all

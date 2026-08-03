@@ -22,22 +22,27 @@ std::string	Client::getNickName(void) const { return(_nickName); }
 
 std::string	Client::getUserName(void) const { return(_userName); }
 
-std::string	Client::getHostName(void) const { return(_hostName); }
-
 std::string	Client::getRealName(void) const { return(_realName); }
+
+std::string Client::getBuffer(int i) const { return (_buffer[i]); };
+
+std::vector<std::string>	Client::getBuffer(void) const { return (_buffer); }
 
 bool		Client::isPassAccepted(void) const { return(_isPassAccepted); }
 
 bool		Client::isRegistered(void) const { return(_isRegistered); }
 
-std::string	Client::getBuffer(int i) { return (_buffer[i]); }
 
 /******************************************/
 /***********       SETERS     *************/
 /******************************************/
 
-void Client::setFd(int fd) { _fd = fd; }
+void	 Client::setFd(int fd) { _fd = fd; }
 
-void Client::setPass(bool state) { _isPassAccepted = state; }
+void 	Client::setPass(bool state) { _isPassAccepted = state; }
 
 void	Client::setNickName(const std::string& nickName) { _nickName = nickName; }
+
+void	Client::setUserName(const std::string& userName) { _userName = userName; }
+
+void	Client::setRealName(const std::string& realName) {_realName = realName; }

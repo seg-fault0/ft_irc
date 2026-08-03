@@ -1,26 +1,23 @@
 #include "irc.hpp"
 
-void	loop(Irc& irc)
+void	Server::loop()
 {
-	if (poll(irc.pfds.data(), irc.pfds.size(), -1) < 0)
+	if (poll(_pfds.data(), _pfds.size(), -1) < 0)
 		throw (Exception(WARNING, "server : poll failed"));
 	
-	int		isConnecting;
-	pollfd	new_client;
-	
-	for (size_t i = 0; i < irc.pfds.size(); i++)
+	for (size_t i = 0; i < _pfds.size(); i++)
 	{
-		if (irc.pfds[i].revents & POLLIN)
+		if (_pfds[i].revents & POLLIN)
 		{
 			if (i == 0)
-				irc.createNewClient();
+				createNewClient();
 			else
-				irc.manageClients(i);
+				_clients[i].manager(*this);
 		}
 	}
 }
 
-void	Server::run(Irc& irc)
+void	Server::run()
 {
 	printServerInfo();
 
@@ -28,7 +25,7 @@ void	Server::run(Irc& irc)
 	{
 		try
 		{
-			loop(irc);
+			loop();
 		}
 		catch(const Exception& e)
 		{

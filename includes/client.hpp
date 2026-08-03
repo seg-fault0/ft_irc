@@ -21,7 +21,8 @@ class Client
 	
 	//methods
 		void	readBuffer(void);
-		void	signIn(Irc& irc);
+		void	signIn(Server& server);
+		void	manager(Server& server);
 	
 	//geters
 		int			getFd(void) const;

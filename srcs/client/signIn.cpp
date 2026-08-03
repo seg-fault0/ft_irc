@@ -1,13 +1,13 @@
 #include "irc.hpp"
 
-static void handlePass(Irc& irc, Client& client)
+static void handlePass(Server& server, Client& client)
 {
 	std::string	pass = client.getBuffer().substr(5);
 	int			fd = client.getFd();
 
 	if (client.isPassAccepted() == true)
 		return ;
-	else if(pass != irc.server.getPassWord())
+	else if(pass != server.getPassWord())
 		ft_send(fd, "ERROR : wrong pass word\n");
 	else
 	{
@@ -16,22 +16,22 @@ static void handlePass(Irc& irc, Client& client)
 	}
 }
 
-static void	handleNick(Irc& irc, Client& client)
+static void	handleNick(Server& server, Client& client)
 {
 	std::string	nick = client.getBuffer().substr(5);
 
-	if (irc.searchNickName(nick) == true)
+	if (server.searchNickName(nick) == true)
 		ft_send(client.getFd(), "ERROR : client already exists\n");
 	else
 		client.setNickName(nick);
 }
 
-void Client::signIn(Irc& irc)
+void Client::signIn(Server& server)
 {
 	if (_buffer.compare(0, 4, "PASS") == 0)
-		handlePass(irc, *this);
+		handlePass(server,*this);
 	else if (_buffer.compare(0, 4, "NICK") == 0)
-		handleNick(irc, *this);
+		handleNick(server, *this);
 	else
 		ft_send(_fd, "wrong command\n");
 

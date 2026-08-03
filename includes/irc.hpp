@@ -21,26 +21,6 @@
 # include "client.hpp"
 
 /******************************************/
-/***********       CLASS      *************/
-/******************************************/
-
-class Client;
-
-class Irc
-{
-	public:
-		Server					server;
-		std::map<int, Client>	clients; 
-		std::vector<pollfd>		pfds;
-	
-	public:
-		void createNewClient(void);
-		void deleteClient(int);
-		void manageClients(int);
-		bool searchNickName(const std::string& nickName);
-};
-
-/******************************************/
 /***********     PROTOYPES    *************/
 /******************************************/
 

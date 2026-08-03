@@ -28,7 +28,7 @@ void setupListen(int fd)
 		throw (Exception(ERROR, "listen : failed"));
 }
 
-void	Server::init(Irc& irc, int ac, char** av)
+void	Server::init(int ac, char** av)
 {
 	if (ac != 3)
 		throw (Exception(ERROR, "usage : ./ircserver <port> <passWord>"));
@@ -44,5 +44,6 @@ void	Server::init(Irc& irc, int ac, char** av)
 	setupBind(_fd, _port);
 	setupListen(_fd);
 
-	irc.pfds.push_back(createPFD(_fd));
+	_pfds.push_back(createPFD(_fd));
+	_clients.push_back(Client());
 }

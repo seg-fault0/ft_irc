@@ -2,6 +2,8 @@ SRCS =	srcs/main.cpp					\
 										\
 		srcs/exception/exception.cpp	\
 										\
+		srcs/log/add.cpp				\
+										\
 		srcs/other/ft_atoi.cpp			\
 		srcs/other/network.cpp			\
 		srcs/other/ft_split.cpp			\
@@ -23,7 +25,8 @@ SRCS =	srcs/main.cpp					\
 HEADER =	includes/irc.hpp		\
 			includes/exception.hpp	\
 			includes/server.hpp		\
-			includes/client.hpp
+			includes/client.hpp		\
+			includes/log.hpp		\
 
 NAME = ircserver
 

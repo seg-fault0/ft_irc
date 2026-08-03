@@ -6,7 +6,7 @@ void Server::createNewClient(void)
 	if (client_fd < 0)
 		throw (Exception(WARNING, "client : failed to accecpt client"));
 
-	std::cout << "new client connected\n";
+	log.add(*this, "new client connected");
 
 	_clients.push_back(Client());
 	_clients[_clients.size() - 1].setFd(client_fd); // i added this line cuz the line before calls the destructore wich will close the fd

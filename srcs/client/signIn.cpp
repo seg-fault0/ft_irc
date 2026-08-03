@@ -8,11 +8,11 @@ static void handlePass(Server& server, Client& client)
 	if (client.isPassAccepted() == true)
 		return ;
 	else if(pass != server.getPassWord())
-		ft_send(fd, "ERROR : wrong pass word\n");
+		server.log.add(client, "wrong pass word");
 	else
 	{
 		client.setPass(true);
-		ft_send(fd, "pass word accepted\n");
+		server.log.add(client, "entered right pass word");
 	}
 }
 
@@ -21,7 +21,7 @@ static void	handleNick(Server& server, Client& client)
 	std::string	nick = client.getBuffer()[1];
 
 	if (server.searchNickName(nick) == true)
-		ft_send(client.getFd(), "ERROR : client already exists\n");
+		server.log.add(client, "nick name already taken");
 	else
 		client.setNickName(nick);
 }
@@ -29,7 +29,7 @@ static void	handleNick(Server& server, Client& client)
 static void handleUser(Server& server, Client& client)
 {
 	if (client.getBuffer().size() < 5 || client.getBuffer(4)[0] != ':')
-		ft_send(client.getFd(), "ERROR : BAD INPUT\n");
+		server.log.add(client, "bad args");
 	else
 	{
 		client.setUserName(client.getBuffer()[1]);
@@ -55,12 +55,12 @@ void Client::signIn(Server& server)
 	else if (cmd == "USER")
 		handleUser(server, *this);
 	else
-		ft_send(_fd, "wrong command\n");
+		server.log.add(*this, "wrong command");
 
 	if (_isPassAccepted == true && !_nickName.empty()
 		&& !_userName.empty() && !_realName.empty())
 	{
 		_isRegistered = true;
-		ft_send(_fd, "Regestration completed\n");	
+		server.log.add(server, "new user registered");
 	}
 }

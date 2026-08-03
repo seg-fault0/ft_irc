@@ -1,6 +1,7 @@
 #pragma once
 
 # include "irc.hpp"
+# include "log.hpp"
 
 class Client;
 
@@ -12,10 +13,13 @@ class Server
 		int						_fd;
 		std::vector<Client>		_clients; 
 		std::vector<pollfd>		_pfds;
-
-	private:
+		
+		private:
 		void	banner(void) const;
 		void	loop();
+		
+	public:
+			Log	log;
 
 	public:
 	//orthodox

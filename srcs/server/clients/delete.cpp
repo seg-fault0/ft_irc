@@ -8,7 +8,7 @@ void Server::deleteClient(Client& client)
 		{
 			_clients.erase(_clients.begin() + i);
 			_pfds.erase(_pfds.begin() + i);
-			std::cout << "client " << _clients[i].getFd() << "left\n";
+			log.add(*this, "client disconnected");
 			return ;
 		}
 	}

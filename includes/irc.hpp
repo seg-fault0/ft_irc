@@ -9,6 +9,7 @@
 # include <sstream>
 # include <map>
 # include <vector>
+# include <sstream>
 
 # include <sys/socket.h>
 # include <netinet/in.h>
@@ -19,6 +20,7 @@
 # include "exception.hpp"
 # include "server.hpp"
 # include "client.hpp"
+# include "log.hpp"
 
 /******************************************/
 /***********     NAME SPACES    ***********/

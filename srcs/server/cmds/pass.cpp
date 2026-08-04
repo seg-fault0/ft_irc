@@ -12,6 +12,6 @@ void Server::handlePassCmd(Client& client)
 	else
 	{
 		client.setPass(true);
-		respond(client, "good pass word");
+		log(LOG, client, "good pass word");
 	}
 }

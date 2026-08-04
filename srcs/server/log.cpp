@@ -8,6 +8,8 @@ void	Server::log(int type, Client& client, const std::string& msg)
 		str << "[REQUEST]";
 	else if (type == RESPOND)
 		str << "[RESPOND]";
+	else if (type == LOG)
+		str << "[LOG]";
 
 	if (client.getNickName().empty())
 		str << "[id= " << client.getFd() << "]";
@@ -23,11 +25,14 @@ void	Server::log(int type, Client& client, const std::string& msg)
 		std::cout << paintStr(color::cyan, str.str()) << " : ";
 	else if (type == RESPOND)
 		std::cout << paintStr(color::green, str.str()) << " : ";
+	else if (type == LOG)
+		std::cout << paintStr(color::red, str.str()) << " : ";
+		
 
 	std::cout << msg;
 	if(msg[msg.length() - 1] != '\n')
 		std::cout << "\n";		
 
-	if (type == RESPOND)
+	if (type != REQUEST)
 		std::cout << "\n";
 }

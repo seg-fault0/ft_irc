@@ -4,7 +4,13 @@
 /***********      ORTHODOX    *************/
 /******************************************/
 
-Client::Client() : _fd(-1), _nickName("*") {}
+Client::Client()
+{
+	_fd = -1;
+	_nickName = "*";
+	_isPassAccepted = false;
+	_isRegistered = false;
+}
 
 Client::~Client() 
 {

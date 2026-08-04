@@ -11,7 +11,7 @@ void Server::signIn(Client& client)
 	else if (cmd == "USER")
 		handleUserCmd(client);
 	else
-		respond(client, "bad command");
+		respond(client, RSP_UNKNOWNCMD(client.getNickName()));
 
 	if (client.isPassAccepted() 
 		&& !client.getNickName().empty()
@@ -19,6 +19,9 @@ void Server::signIn(Client& client)
 		&& !client.getUserName().empty())
 	{
 		client.setRegistered(true);
-		respond(client, "new user registered");
+		respond(client, RSP_WELCOM(client.getNickName()));
+		respond(client, RSP_HOST(client.getNickName()));
+		respond(client, RSP_CREATED(client.getNickName()));
+		respond(client, RSP_INFO(client.getNickName()));
 	}
 }

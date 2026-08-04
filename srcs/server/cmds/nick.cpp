@@ -5,12 +5,12 @@ void	Server::handleNickCmd(Client& client)
 	std::string	nick = client.getCmd(1);
 
 	if (searchNickName(nick) == true)
-		respond(client, "nick name already taken");
+		respond(client, RSP_NICKALREADYUSED(client.getNickName()));
 	else if (nick == "*")
-		respond(client, "bad nick name");
+		respond(client, RSP_NICKNOTALLOWED(client.getNickName()));
 	else
 	{
-		respond(client, "good nick name");
+		log(LOG, client, "entred good name");
 		client.setNickName(nick);
 	}
 }

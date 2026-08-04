@@ -11,6 +11,7 @@ SRCS =	srcs/main.cpp					\
 		srcs/server/luncher.cpp			\
 		srcs/server/server.cpp			\
 		srcs/server/log.cpp				\
+		srcs/server/respond.cpp			\
 										\
 		srcs/server/clients/create.cpp	\
 		srcs/server/clients/delete.cpp	\

@@ -10,5 +10,5 @@ void	Server::manageClient(Client& client)
 	else if (!client.isRegistered())
 		signIn(client);
 	else
-		log(RESPOND, client, "responding ...\n");
+		respond(client, "responding ...\n");
 }

@@ -11,7 +11,7 @@ void Server::signIn(Client& client)
 	else if (cmd == "USER")
 		handleUserCmd(client);
 	else
-		log(RESPOND, client, "bad command");
+		respond(client, "bad command");
 
 	if (client.isPassAccepted() 
 		&& !client.getNickName().empty()
@@ -19,6 +19,6 @@ void Server::signIn(Client& client)
 		&& !client.getUserName().empty())
 	{
 		client.setRegistered(true);
-		log(RESPOND, client, "new user registered");
+		respond(client, "new user registered");
 	}
 }

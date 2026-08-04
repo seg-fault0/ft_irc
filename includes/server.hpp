@@ -19,6 +19,7 @@ class Server
 		private:
 		void	banner(void) const;
 		void	loop();
+		void	log(int type, Client& client, const std::string& msg);
 
 	public:
 	//orthodox
@@ -28,8 +29,8 @@ class Server
 	//server methods
 		void	init(int ac, char** av);
 		void	lunch();
-		void	log(int type, Client& client, const std::string& msg);
 		bool	searchNickName(const std::string& nickName);
+		void	respond(Client& client, const std::string& msg);
 		
 	//client methods
 		void	createNewClient(void);

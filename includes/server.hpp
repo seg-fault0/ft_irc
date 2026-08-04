@@ -16,6 +16,7 @@
 /**************************************/
 
 class Client;
+class Channel;
 
 class Server
 {
@@ -23,7 +24,8 @@ class Server
 		int						_port;
 		std::string				_passWord;
 		int						_fd;
-		std::vector<Client>		_clients; 
+		std::vector<Channel>	_channels;
+		std::vector<Client>		_clients;
 		std::vector<pollfd>		_pfds;
 		
 		private:

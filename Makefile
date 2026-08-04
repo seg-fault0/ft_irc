@@ -26,11 +26,18 @@ SRCS =	srcs/main.cpp					\
 										\
 		srcs/client/client.cpp			\
 		srcs/client/readBuffer.cpp		\
+										\
+		srcs/channel/client.cpp			\
+		srcs/channel/admin.cpp			\
+		srcs/channel/geters.cpp			\
+		srcs/channel/seters.cpp			\
+		srcs/channel/orthodox.cpp		\
 
 HEADER =	includes/irc.hpp		\
 			includes/exception.hpp	\
 			includes/server.hpp		\
 			includes/client.hpp		\
+			includes/channel.hpp	\
 
 NAME = ircserver
 

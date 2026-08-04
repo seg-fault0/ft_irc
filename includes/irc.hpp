@@ -20,6 +20,7 @@
 # include "exception.hpp"
 # include "server.hpp"
 # include "client.hpp"
+# include "respondBuilder.hpp"
 
 /******************************************/
 /***********     NAME SPACES    ***********/

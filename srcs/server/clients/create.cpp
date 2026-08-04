@@ -11,5 +11,5 @@ void Server::createNewClient(void)
 	_clients[_clients.size() - 1].setFd(client_fd); // i added this line cuz the line before calls the destructore wich will close the fd
 	_pfds.push_back(createPFD(client_fd));
 	
-	respond(_clients[_clients.size() - 1], "new client connected");
+	log(RESPOND, _clients[_clients.size() - 1], "new client connected");
 }

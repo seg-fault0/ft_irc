@@ -37,8 +37,7 @@ void	Server::init(int ac, char** av)
 	if(_port <= 0)
 		throw (Exception(ERROR, "port : bad port"));
 
-	_passWord = av[2];
-	_passWord += "\n";
+	_passWord = av[2];	
 
 	_fd = setupSocket();
 	setupBind(_fd, _port);

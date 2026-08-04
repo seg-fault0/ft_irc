@@ -7,7 +7,7 @@ void Server::banner(void) const
 	std::cout << paintStr(color::blue,"║               FT_IRC SERVER                  ║\n");
 	std::cout << paintStr(color::blue,"╠══════════════════════════════════════════════╣\n");
 	std::cout << paintStr(color::blue,"║ Port     : ") << _port << "\n";
-	std::cout << paintStr(color::blue,"║ Password : ") << _passWord;
+	std::cout << paintStr(color::blue,"║ Password : ") << _passWord << "\n";
 	std::cout << paintStr(color::blue,"╚══════════════════════════════════════════════╝\n");
 	std::cout << std::endl;
 }

@@ -14,5 +14,12 @@ void	Client::readBuffer(Server& server)
 	buffer[bytes] = '\0';
 	
 	_buffer = buffer;
+
+	while (!_buffer.empty() &&
+      (_buffer[_buffer.size() - 1] == '\r' ||
+       _buffer[_buffer.size() - 1] == '\n'))
+	{
+    	_buffer.erase(_buffer.size() - 1);
+	}
 	_cmds = ft_split(_buffer, ' ');
 }

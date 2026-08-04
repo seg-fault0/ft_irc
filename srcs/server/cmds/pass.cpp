@@ -8,10 +8,10 @@ void Server::handlePassCmd(Client& client)
 	if (client.isPassAccepted() == true)
 		return ;
 	else if(pass != _passWord)
-		log(RESPOND, client, "bad pass word");
+		respond(client, "bad pass word");
 	else
 	{
 		client.setPass(true);
-		log(RESPOND, client, "good pass word");
+		respond(client, "good pass word");
 	}
 }

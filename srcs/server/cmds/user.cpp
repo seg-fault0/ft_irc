@@ -3,7 +3,7 @@
 void Server::handleUserCmd(Client& client)
 {
 	if (client.getAllCmd().size() < 5 || client.getCmd(4)[0] != ':')
-		log(RESPOND, client, "bad args");
+		respond(client, "bad args");
 	else
 	{
 		client.setUserName(client.getCmd(1));
@@ -15,6 +15,6 @@ void Server::handleUserCmd(Client& client)
 				tmp += " ";
 		}
 		client.setRealName(tmp);
-		log(RESPOND, client, "good user/real name");
+		respond(client, "good user/real name");
 	}
 }

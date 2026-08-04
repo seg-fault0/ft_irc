@@ -49,3 +49,5 @@ void	Client::setNickName(const std::string& nickName) { _nickName = nickName; }
 void	Client::setUserName(const std::string& userName) { _userName = userName; }
 
 void	Client::setRealName(const std::string& realName) {_realName = realName; }
+
+void	Client::setRegistered(bool state) { _isRegistered = state; }

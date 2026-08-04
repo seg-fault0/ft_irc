@@ -21,8 +21,6 @@ class Client
 	
 	//methods
 		void	readBuffer(Server& server);
-		void	signIn(Server& server);
-		void	manager(Server& server);
 	
 	//geters
 		int							getFd(void) const;
@@ -38,6 +36,7 @@ class Client
 	//seters
 		void	setFd(int fd);
 		void	setPass(bool state);
+		void	setRegistered(bool state);
 		void	setNickName(const std::string& nickName);
 		void	setRealName(const std::string&);
 		void	setUserName(const std::string&);

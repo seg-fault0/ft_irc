@@ -25,13 +25,22 @@ class Server
 		Server();
 		~Server();
 	
-	//methods
+	//server methods
 		void	init(int ac, char** av);
 		void	lunch();
-		void	createNewClient(void);
-		bool	searchNickName(const std::string& nickName);
-		void	deleteClient(Client& client);
 		void	log(int type, Client& client, const std::string& msg);
+		bool	searchNickName(const std::string& nickName);
+		
+	//client methods
+		void	createNewClient(void);
+		void	deleteClient(Client& client);
+		void	manageClient(Client& client);
+		void 	signIn(Client& client);
+	
+	//cmd methods
+		void	handleNickCmd(Client& client);
+		void	handlePassCmd(Client& client);
+		void	handleUserCmd(Client& client);
 
 	//geters
 		int			getPort(void) const ;

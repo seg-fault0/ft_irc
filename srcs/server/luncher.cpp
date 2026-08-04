@@ -24,7 +24,7 @@ void	Server::loop()
 			if (i == 0)
 				createNewClient();
 			else
-				_clients[i].manager(*this);
+				manageClient(_clients[i]);
 		}
 	}
 }

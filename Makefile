@@ -15,11 +15,15 @@ SRCS =	srcs/main.cpp					\
 		srcs/server/clients/create.cpp	\
 		srcs/server/clients/delete.cpp	\
 		srcs/server/clients/search.cpp	\
+		srcs/server/clients/manager.cpp	\
+		srcs/server/clients/signIn.cpp	\
+										\
+		srcs/server/cmds/nick.cpp		\
+		srcs/server/cmds/pass.cpp		\
+		srcs/server/cmds/user.cpp		\
 										\
 		srcs/client/client.cpp			\
 		srcs/client/readBuffer.cpp		\
-		srcs/client/signIn.cpp			\
-		srcs/client/manager.cpp			\
 
 HEADER =	includes/irc.hpp		\
 			includes/exception.hpp	\

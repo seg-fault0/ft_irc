@@ -15,6 +15,4 @@ void	Client::readBuffer(Server& server)
 	
 	_buffer = buffer;
 	_cmds = ft_split(_buffer, ' ');
-
-	server.log(REQUEST, *this, _buffer);
 }

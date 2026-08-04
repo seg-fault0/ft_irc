@@ -36,9 +36,10 @@ class Server
 		void	createNewClient(void);
 		void	deleteClient(Client& client);
 		void	manageClient(Client& client);
-		void 	signIn(Client& client);
-	
+
 	//cmd methods
+		void 	signIn(Client& client);
+		void	cmdManager(Client& client);
 		void	handleNickCmd(Client& client);
 		void	handlePassCmd(Client& client);
 		void	handleUserCmd(Client& client);

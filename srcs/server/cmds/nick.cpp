@@ -12,4 +12,3 @@ void	Server::handleNickCmd(Client& client)
 		client.setNickName(nick);
 	}
 }
-

@@ -17,8 +17,9 @@ SRCS =	srcs/main.cpp					\
 		srcs/server/clients/delete.cpp	\
 		srcs/server/clients/search.cpp	\
 		srcs/server/clients/manager.cpp	\
-		srcs/server/clients/signIn.cpp	\
 										\
+		srcs/server/cmds/manager.cpp	\
+		srcs/server/cmds/signIn.cpp		\
 		srcs/server/cmds/nick.cpp		\
 		srcs/server/cmds/pass.cpp		\
 		srcs/server/cmds/user.cpp		\

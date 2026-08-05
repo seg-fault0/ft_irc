@@ -53,9 +53,7 @@ class Server
 
 	//channel methods
 		bool		hasChannel(const std::string& channel_name);
-		void		createChannel(const Client& client, const std::string& channel_name);
 		Channel*	getChannel(const std::string& channel_name);
-		void		addClientToChannel(Client& client, const std::string& channel_name);
 		void		sendMsgToChannel(const std::string& channel_name, const std::string& msg);
 
 	//cmd methods

@@ -1,15 +1,6 @@
 #include "irc.hpp"
 
 /**********************************************/
-/********       CREATE && DELETE      *********/
-/**********************************************/
-
-void	Server::createChannel(const Client& client, const std::string& channel_name)
-{
-	_channels.push_back(Channel(channel_name, client));
-}
-
-/**********************************************/
 /**************       GETERS      *************/
 /**********************************************/
 
@@ -31,23 +22,6 @@ Channel*	Server::getChannel(const std::string& channel_name)
 			return (&_channels[i]);
 	}
 	return (NULL);	
-}
-
-
-/********************************************************/
-/*******    (ADD && REMOVE) CLIENT FROM CHANNEL   *******/
-/********************************************************/
-
-
-void	Server::addClientToChannel(Client& client, const std::string& channel_name)
-{
-	Channel* channel = getChannel(channel_name);
-
-	if (!channel)
-		throw (WARNING, "channel not found");
-
-	channel->clientAdd(client);
-	client.channelAdd(channel_name);
 }
 
 /********************************************************/

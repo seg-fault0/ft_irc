@@ -9,7 +9,6 @@
 
 # define RESPOND 1
 # define REQUEST 2
-# define LOG 3
 
 /**************************************/
 /************     CLASS     ***********/

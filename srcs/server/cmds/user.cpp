@@ -15,6 +15,5 @@ void Server::handleUserCmd(Client& client)
 				tmp += " ";
 		}
 		client.setRealName(tmp);
-		log(LOG, client, "user/host name are set");
 	}
 }

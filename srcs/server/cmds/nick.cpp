@@ -9,8 +9,5 @@ void	Server::handleNickCmd(Client& client)
 	else if (nick == "*")
 		respond(client, RSP_NICKNOTALLOWED(client.getNickName()));
 	else
-	{
-		log(LOG, client, "entred good name");
 		client.setNickName(nick);
-	}
 }

@@ -55,6 +55,7 @@ class Server
 		void	handleNickCmd(Client& client);
 		void	handlePassCmd(Client& client);
 		void	handleUserCmd(Client& client);
+		void	handleQuitCmd(Client& client);
 
 	//geters
 		int			getPort(void) const ;

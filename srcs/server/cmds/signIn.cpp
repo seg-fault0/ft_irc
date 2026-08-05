@@ -10,6 +10,7 @@ void Server::signIn(Client& client)
 		handleNickCmd(client);
 	else if (cmd == "USER")
 		handleUserCmd(client);
+	else if (cmd == "CAP");
 	else
 		respond(client, RSP_UNKNOWNCMD(client.getNickName()));
 

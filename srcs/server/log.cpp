@@ -12,12 +12,7 @@ void	Server::log(int type, Client& client, const std::string& msg)
 	if (client.getNickName().empty())
 		str << "[id= " << client.getFd() << "]";
 	else
-	{
-		std::string nick = client.getNickName();
-		nick.erase(nick.size() - 1);
-		str << "[" << nick << "]";
-	}
-
+		str << "[" << client.getNickName() << "]";
 
 	if (type == REQUEST)
 		std::cout << paintStr(color::cyan, str.str()) << " : ";

@@ -23,6 +23,7 @@ SRCS =	srcs/main.cpp					\
 		srcs/server/cmds/nick.cpp		\
 		srcs/server/cmds/pass.cpp		\
 		srcs/server/cmds/user.cpp		\
+		srcs/server/cmds/quit.cpp		\
 										\
 		srcs/client/client.cpp			\
 		srcs/client/readBuffer.cpp		\

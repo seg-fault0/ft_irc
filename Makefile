@@ -27,6 +27,7 @@ SRCS =	srcs/main.cpp					\
 										\
 		srcs/client/client.cpp			\
 		srcs/client/readBuffer.cpp		\
+		srcs/client/channel.cpp			\
 										\
 		srcs/channel/client.cpp			\
 		srcs/channel/admin.cpp			\

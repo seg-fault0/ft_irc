@@ -13,6 +13,7 @@ class Client
 		std::string					_realName;
 		bool						_isPassAccepted; 
 		bool						_isRegistered;
+		std::vector<std::string>	_channels;
 
 	public:
 	//orthodox
@@ -21,11 +22,15 @@ class Client
 	
 	//methods
 		void	readBuffer(Server& server);
-	
+		bool	isChannelMember(const std::string& channel_name);
+		void	channelAdd(const std::string& channel_name);
+		void	channelDel(const std::string& channel_name);
+
 	//geters
 		int							getFd(void) const;
 		std::string					getBuffer(void) const;
 		std::vector<std::string>	getAllCmd(void) const;
+		std::vector<std::string>	getChannels(void) const ;
 		std::string					getCmd(int) const ;
 		std::string					getNickName(void) const;
 		std::string					getUserName(void) const;

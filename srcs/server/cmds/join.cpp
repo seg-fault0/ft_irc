@@ -10,10 +10,7 @@ void	Server::handleJoinCmd(Client& client)
 		addClientToChannel(client, channel_name);
 	client.channelAdd(channel_name);
 
-	std::vector<file> clients_in_channel = getChannel(channel_name)->getClients();
-	std::string names;
-	for (size_t i = 0; i < clients_in_channel.size(); i++)
-		names += getClientNickNameFromFd(clients_in_channel[i]) += " ";
+	std::string names = getChannel(channel_name)->getClientsStr();
 
 	sendMsgToChannel(channel_name, RSP_JOIN(client.getNickName(), client.getUserName(), channel_name));
 	sendMsgToClient(client, RSP_NOTOPIC(client.getNickName(), channel_name));

@@ -12,7 +12,13 @@ Client::Client()
 	_isRegistered = false;
 }
 
-Client::Client(int fd) : _fd(fd) {} 
+Client::Client(int fd) : _fd(fd) {}
+
+void	Client::closeFd(void)
+{
+	if (_fd >= 0)
+		close(_fd);
+}
 
 Client::~Client() {}
 

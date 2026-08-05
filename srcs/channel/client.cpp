@@ -2,11 +2,11 @@
 
 bool	Channel::isClient(const Client& client) const
 {
-	file client_fd = client.getFd();
+	std::string client_nick = client.getNickName();
 
 	for (size_t i = 0; i < _clients.size(); i++)
 	{
-		if (_clients[i] == client_fd)
+		if (_clients[i] == client_nick)
 			return (true);
 	}
 	return (false);
@@ -14,11 +14,11 @@ bool	Channel::isClient(const Client& client) const
 
 bool	Channel::isClientInvited(const Client& client) const
 {
-	file client_fd = client.getFd();
+	std::string client_nick = client.getNickName();
 
 	for (size_t i = 0; i < _clients.size(); i++)
 	{
-		if (_invitedClients[i] == client_fd)
+		if (_invitedClients[i] == client_nick)
 			return (true);
 	}
 	return (false);
@@ -26,37 +26,31 @@ bool	Channel::isClientInvited(const Client& client) const
 
 bool	Channel::clientAdd(const Client& client)
 {
-	file client_fd = client.getFd();
+	std::string client_nick = client.getNickName();
 
 	if (_userLimit >= _clients.size())
 		return (false);
 
-	_clients.push_back(client_fd);
+	_clients.push_back(client_nick);
 	return (true);
 }
 
-void	Channel::clientDel(const Client& client)
+void	Channel::clientKick(const Client& client)
 {
 	if (!isClient(client))
 		return ;
 	
-	file client_fd = client.getFd();
+	std::string client_nick = client.getNickName();
 
 	for(size_t i = 0; i < _clients.size(); i++)
 	{
-		if (_clients[i] == client_fd)
+		if (_clients[i] == client_nick)
 			_clients.erase(_clients.begin() + i);
 	}
 
 	for(size_t i = 0; i < _admins.size(); i++)
 	{
-		if (_admins[i] == client_fd)
+		if (_admins[i] == client_nick)
 			_admins.erase(_admins.begin() + i);
 	}
-}
-
-void	Client::closeFd(void)
-{
-	if (_fd >= 0)
-		close(_fd);
 }

@@ -27,11 +27,13 @@ void		Server::sendMsgToChannel(const std::string& channel_name, const std::strin
 	if (!channel)
 		throw (WARNING, "channel nout found");
 	
-	std::vector<file>	clients_fd = channel->getClients();
+	std::vector<std::string>	clientsNickNames = channel->getClients();
 
-	for (size_t i = 0; i < clients_fd.size(); i++)
+	for (size_t i = 0; i < clientsNickNames.size(); i++)
 	{
-		sendMsgToClient(Client(clients_fd[i]), msg);
+		Client* client = getClientByNickName(clientsNickNames[i]);
+		if (client)
+			sendMsgToClient(*client, msg);
 	}
 }
 
@@ -47,5 +49,5 @@ Channel*	Server::getChannel(const std::string& channel_name)
 
 void	Server::createChannel(const Client& client, const std::string& channel_name)
 {
-	_channels.push_back(Channel(channel_name, client.getFd()));
+	_channels.push_back(Channel(channel_name, client));
 }

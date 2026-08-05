@@ -9,7 +9,7 @@ void	Server::log(int type, Client& client, const std::string& msg)
 	else if (type == RESPOND)
 		str << "[RESPOND]";
 
-	if (client.getNickName().empty())
+	if (client.getNickName() == "*")
 		str << "[id= " << client.getFd() << "]";
 	else
 		str << "[" << client.getNickName() << "]";

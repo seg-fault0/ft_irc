@@ -18,11 +18,8 @@ void Server::createNewClient(void)
 	log(RESPOND, _clients[_clients.size() - 1], "new client connected");
 }
 
-void Server::deleteClient(Client& client)
+void Server::deleteClientFromServer(Client& client)
 {
-	for(size_t i = 0; client.getChannels().size(); i++)
-		getChannel(client.getChannels()[i])->clientKick(client);
-
 	for(size_t i = 1; i < _clients.size(); i++)
 	{
 		if (_clients[i].getFd() == client.getFd())
@@ -69,7 +66,7 @@ void	Server::manageClient(Client& client)
 	log(REQUEST, client, client.getBuffer());
 
 	if (client.getBuffer().empty())
-		deleteClient(client);
+		deleteClientFromServer(client);
 	else if (!client.isRegistered())
 		signIn(client);
 	else

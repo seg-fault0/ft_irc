@@ -46,7 +46,7 @@ class Server
 		
 	//client methods
 		void		createNewClient(void);
-		void		deleteClient(Client& client);
+		void		deleteClientFromServer(Client& client);
 		void		manageClient(Client& client);
 		std::string	getClientNickNameFromFd(file fd);
 		Client*		getClientByNickName(const std::string&);

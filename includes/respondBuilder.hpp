@@ -27,3 +27,6 @@
 #define RSP_TOPIC(nick, channel, topic)(":irc.server 332 " + (nick) + " " + (channel) + " :" + (topic) + "\r\n")
 #define RSP_NAMREPLY(nick, channel, names)(":irc.server 353 " + (nick) + " = " + (channel) + " :" + (names) + "\r\n")
 #define RSP_ENDOFNAMES(nick, channel)(":irc.server 366 " + (nick) + " " + (channel) + " :End of /NAMES list\r\n")
+
+//quit
+#define RSP_QUIT(nick, user, reason)(":" + (nick) + "!" + (user) + "@localhost QUIT :" + (reason) + "\r\n")

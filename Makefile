@@ -17,6 +17,7 @@ SRCS =	srcs/main.cpp					\
 		srcs/server/clients/delete.cpp	\
 		srcs/server/clients/search.cpp	\
 		srcs/server/clients/manager.cpp	\
+		srcs/server/clients/get.cpp		\
 										\
 		srcs/server/cmds/manager.cpp	\
 		srcs/server/cmds/signIn.cpp		\
@@ -24,6 +25,9 @@ SRCS =	srcs/main.cpp					\
 		srcs/server/cmds/pass.cpp		\
 		srcs/server/cmds/user.cpp		\
 		srcs/server/cmds/quit.cpp		\
+		srcs/server/cmds/join.cpp		\
+										\
+		srcs/server/channel/channel.cpp	\
 										\
 		srcs/client/client.cpp			\
 		srcs/client/readBuffer.cpp		\

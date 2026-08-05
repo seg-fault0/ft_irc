@@ -6,7 +6,7 @@ void Server::deleteClient(Client& client)
 	{
 		if (_clients[i].getFd() == client.getFd())
 		{
-			respond(_clients[i], "client disconnected");
+			_clients[i].closeFd();
 			_clients.erase(_clients.begin() + i);
 			_pfds.erase(_pfds.begin() + i);
 			return ;

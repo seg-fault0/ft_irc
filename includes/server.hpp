@@ -31,7 +31,7 @@ class Server
 		private:
 		void	banner(void) const;
 		void	loop();
-		void	log(int type, Client& client, const std::string& msg);
+		void	log(int type, const Client& client, const std::string& msg);
 
 	public:
 	//orthodox
@@ -42,12 +42,20 @@ class Server
 		void	init(int ac, char** av);
 		void	lunch();
 		bool	searchNickName(const std::string& nickName);
-		void	respond(Client& client, const std::string& msg);
+		void	respond(const Client& client, const std::string& msg);
 		
 	//client methods
-		void	createNewClient(void);
-		void	deleteClient(Client& client);
-		void	manageClient(Client& client);
+		void		createNewClient(void);
+		void		deleteClient(Client& client);
+		void		manageClient(Client& client);
+		std::string	getClientNickNameFromFd(file fd);
+
+	//channel methods
+		bool		hasChannel(const std::string& channel_name);
+		void		createChannel(const Client& client, const std::string& channel_name);
+		Channel*	getChannel(const std::string& channel_name);
+		void		addClientToChannel(const Client& client, const std::string& channel_name);
+		void		sendMsgToChannel(const std::string& channel_name, const std::string& msg);
 
 	//cmd methods
 		void 	signIn(Client& client);
@@ -56,6 +64,7 @@ class Server
 		void	handlePassCmd(Client& client);
 		void	handleUserCmd(Client& client);
 		void	handleQuitCmd(Client& client);
+		void	handleJoinCmd(Client& client);
 
 	//geters
 		int			getPort(void) const ;

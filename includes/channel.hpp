@@ -27,8 +27,10 @@ class Channel
 		bool	isAdmin(const Client&) const;
 		void	adminAdd(const Client&);
 	
-		std::string	getTopic(void) const ;
-		std::string	getPassWord(void) const ;
+		std::string			getTopic(void) const ;
+		std::string			getPassWord(void) const ;
+		std::string			getName(void) const ;
+		std::vector<file>	getClients(void) const;
 
 		void	setInviteOnly(bool state);
 		void	setTopicRestrict(bool state);

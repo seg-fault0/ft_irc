@@ -12,11 +12,9 @@ Client::Client()
 	_isRegistered = false;
 }
 
-Client::~Client() 
-{
-	if (_fd >= 0)
-		close(_fd);
-}
+Client::Client(int fd) : _fd(fd) {} 
+
+Client::~Client() {}
 
 /******************************************/
 /***********       GETERS     *************/

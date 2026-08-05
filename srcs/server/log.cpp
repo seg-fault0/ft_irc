@@ -1,6 +1,6 @@
 #include "irc.hpp"
 
-void	Server::log(int type, Client& client, const std::string& msg)
+void	Server::log(int type, const Client& client, const std::string& msg)
 {
 	std::stringstream str;
 

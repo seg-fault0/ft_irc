@@ -54,3 +54,9 @@ void	Channel::clientDel(const Client& client)
 			_admins.erase(_admins.begin() + i);
 	}
 }
+
+void	Client::closeFd(void)
+{
+	if (_fd >= 0)
+		close(_fd);
+}

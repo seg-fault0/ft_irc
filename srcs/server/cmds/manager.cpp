@@ -6,6 +6,8 @@ void	Server::cmdManager(Client& client)
 
 	if (cmd == "QUIT")
 		handleQuitCmd(client);
+	else if (cmd == "JOIN")
+		handleJoinCmd(client);
 	else
 		respond(client, RSP_UNKNOWNCMD(client.getNickName()));
 }

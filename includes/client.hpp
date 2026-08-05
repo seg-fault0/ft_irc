@@ -18,6 +18,7 @@ class Client
 	public:
 	//orthodox
 		Client();
+		Client(int fd);
 		~Client();
 	
 	//methods
@@ -25,6 +26,7 @@ class Client
 		bool	isChannelMember(const std::string& channel_name);
 		void	channelAdd(const std::string& channel_name);
 		void	channelDel(const std::string& channel_name);
+		void	closeFd(void);
 
 	//geters
 		int							getFd(void) const;

@@ -16,7 +16,7 @@
 # define ERR_NEEDMOREPARAMS(nick)(":irc.server 461 " + (nic) + ": Need more params\r\n")
 
 //welcom
-# define RSP_WELCOM(nick)("irc.server 001 " + (nick) + ": WELCOM\r\t")
-# define RSP_HOST(nick)("irc.server 002 " + (nick) + ": HOST\r\t")
-# define RSP_CREATED(nick)("irc.server 003 " + (nick) + ": CRETED\r\t")
-# define RSP_INFO(nick)("irc.server 004 " + (nick) + ": INFO\r\t")
+#define RSP_WELCOME(nick, user)(":irc.server 001 " + (nick) + " :Welcome to the Internet Relay Network " + (nick) + "!" + (user) + "@localhost\r\n")
+#define RSP_HOST(nick)(":irc.server 002 " + (nick) + " :Your host is irc.server, running version ft_irc-1.0\r\n")
+#define RSP_CREATED(nick, date)(":irc.server 003 " + (nick) + " :This server was created " + date + "\r\n")
+#define RSP_INFO(nick)(":irc.server 004 " + (nick) + " irc.server ft_irc-1.0 o o\r\n")

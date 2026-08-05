@@ -21,6 +21,8 @@
 # include <netinet/in.h>
 # include <unistd.h>
 # include <poll.h>
+# include <ctime>
+# include <string>
 
 //non std
 # include "exception.hpp"

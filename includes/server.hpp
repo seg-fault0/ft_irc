@@ -20,6 +20,7 @@ class Channel;
 class Server
 {
 	private:
+		std::string				_date;
 		int						_port;
 		std::string				_passWord;
 		int						_fd;
@@ -59,4 +60,5 @@ class Server
 		int			getPort(void) const ;
 		int			getFd(void) const ;
 		std::string	getPassWord(void) const ;
+		std::string	getDate(void) const ;
 };

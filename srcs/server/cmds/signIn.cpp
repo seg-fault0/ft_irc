@@ -19,9 +19,9 @@ void Server::signIn(Client& client)
 		&& !client.getUserName().empty())
 	{
 		client.setRegistered(true);
-		respond(client, RSP_WELCOM(client.getNickName()));
+		respond(client, RSP_WELCOME(client.getNickName(), client.getUserName()));
 		respond(client, RSP_HOST(client.getNickName()));
-		respond(client, RSP_CREATED(client.getNickName()));
+		respond(client, RSP_CREATED(client.getNickName(), _date));
 		respond(client, RSP_INFO(client.getNickName()));
 	}
 }

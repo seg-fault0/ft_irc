@@ -1,5 +1,15 @@
 #include "irc.hpp"
 
+static std::string	creationDate(void)
+{
+	std::time_t now = std::time(NULL);
+    char buffer[64];
+
+    std::strftime(buffer, sizeof(buffer), "%a %b %d %H:%M:%S %Y", std::localtime(&now));
+
+    return std::string(buffer);
+}
+
 static void setupBind(int fd, int port)
 {
 	struct sockaddr_in addr;
@@ -37,7 +47,8 @@ void	Server::init(int ac, char** av)
 	if(_port <= 0)
 		throw (Exception(ERROR, "port : bad port"));
 
-	_passWord = av[2];	
+	_passWord = av[2];
+	_date = creationDate();
 
 	_fd = setupSocket();
 	setupBind(_fd, _port);

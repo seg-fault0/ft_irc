@@ -3,7 +3,7 @@
 void Server::handleUserCmd(Client& client)
 {
 	if (client.getAllCmd().size() < 5 || client.getCmd(4)[0] != ':')
-		sendMsgToClient(client, "bad args");
+		sendMsgToClient(client, RSP_NEEDMOREPARAMS(client.getNickName()));
 	else
 	{
 		client.setUserName(client.getCmd(1));

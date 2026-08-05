@@ -39,7 +39,7 @@ Channel*	Server::getChannel(const std::string& channel_name)
 /********************************************************/
 
 
-void	Server::addClientToChannel(const Client& client, const std::string& channel_name)
+void	Server::addClientToChannel(Client& client, const std::string& channel_name)
 {
 	Channel* channel = getChannel(channel_name);
 
@@ -47,6 +47,7 @@ void	Server::addClientToChannel(const Client& client, const std::string& channel
 		throw (WARNING, "channel not found");
 
 	channel->clientAdd(client);
+	client.channelAdd(channel_name);
 }
 
 /********************************************************/

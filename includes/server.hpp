@@ -42,7 +42,7 @@ class Server
 		void	init(int ac, char** av);
 		void	lunch();
 		bool	searchNickName(const std::string& nickName);
-		void	respond(const Client& client, const std::string& msg);
+		void	sendMsgToClient(const Client& client, const std::string& msg);
 		
 	//client methods
 		void		createNewClient(void);

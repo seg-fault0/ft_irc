@@ -11,13 +11,13 @@ SRCS =	srcs/main.cpp					\
 		srcs/server/luncher.cpp			\
 		srcs/server/server.cpp			\
 		srcs/server/log.cpp				\
-		srcs/server/respond.cpp			\
 										\
 		srcs/server/clients/create.cpp	\
 		srcs/server/clients/delete.cpp	\
 		srcs/server/clients/search.cpp	\
 		srcs/server/clients/manager.cpp	\
 		srcs/server/clients/get.cpp		\
+		srcs/server/clients/sendMsg.cpp	\
 										\
 		srcs/server/cmds/manager.cpp	\
 		srcs/server/cmds/signIn.cpp		\

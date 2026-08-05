@@ -31,7 +31,7 @@ void		Server::sendMsgToChannel(const std::string& channel_name, const std::strin
 
 	for (size_t i = 0; i < clients_fd.size(); i++)
 	{
-		respond(Client(clients_fd[i]), msg);
+		sendMsgToClient(Client(clients_fd[i]), msg);
 	}
 }
 

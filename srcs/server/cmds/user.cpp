@@ -3,7 +3,7 @@
 void Server::handleUserCmd(Client& client)
 {
 	if (client.getAllCmd().size() < 5 || client.getCmd(4)[0] != ':')
-		respond(client, "bad args");
+		sendMsgToClient(client, "bad args");
 	else
 	{
 		client.setUserName(client.getCmd(1));

@@ -16,7 +16,7 @@ void	Server::handleJoinCmd(Client& client)
 		names += getClientNickNameFromFd(clients_in_channel[i]) += " ";
 
 	sendMsgToChannel(channel_name, RSP_JOIN(client.getNickName(), client.getUserName(), channel_name));
-	respond(client, RSP_NOTOPIC(client.getNickName(), channel_name));
-	respond(client, RSP_NAMREPLY(client.getNickName(), channel_name, names));
-	respond(client, RSP_ENDOFNAMES(client.getNickName(), channel_name));
+	sendMsgToClient(client, RSP_NOTOPIC(client.getNickName(), channel_name));
+	sendMsgToClient(client, RSP_NAMREPLY(client.getNickName(), channel_name, names));
+	sendMsgToClient(client, RSP_ENDOFNAMES(client.getNickName(), channel_name));
 }

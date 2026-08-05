@@ -22,8 +22,5 @@ void	Server::log(int type, const Client& client, const std::string& msg)
 
 	std::cout << msg;
 	if(msg[msg.length() - 1] != '\n')
-		std::cout << "\n";		
-
-	if (type != REQUEST)
 		std::cout << "\n";
 }

@@ -9,5 +9,5 @@ void	Server::cmdManager(Client& client)
 	else if (cmd == "JOIN")
 		handleJoinCmd(client);
 	else
-		respond(client, RSP_UNKNOWNCMD(client.getNickName()));
+		sendMsgToClient(client, RSP_UNKNOWNCMD(client.getNickName()));
 }

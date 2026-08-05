@@ -20,6 +20,9 @@ void Server::createNewClient(void)
 
 void Server::deleteClient(Client& client)
 {
+	for(size_t i = 0; client.getChannels().size(); i++)
+		getChannel(client.getChannels()[i])->clientKick(client);
+
 	for(size_t i = 1; i < _clients.size(); i++)
 	{
 		if (_clients[i].getFd() == client.getFd())

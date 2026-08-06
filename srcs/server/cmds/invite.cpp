@@ -7,8 +7,8 @@ void	Server::handleInviteCmd(Client& client)
 		sendMsgToClient(client, RSP_NEEDMOREPARAMS(client.getNickName()));
 		return ;
 	}
-	std::string channel_name = client.request.getParam(0);
-	std::string nick_name = client.request.getParam(1);
+	std::string nick_name = client.request.getParam(0);
+	std::string channel_name = client.request.getParam(1);
 	
 	if (!hasChannel(channel_name))
 	{

@@ -66,6 +66,7 @@ class Server
 		void	handleJoinCmd(Client& client);
 		void	handlePartCmd(Client& client);
 		void	handleInviteCmd(Client& client);
+		void	handlePrivmsgCmd(Client& client);
 
 	//geters
 		int			getPort(void) const ;

@@ -38,9 +38,9 @@ bool	Channel::clientAdd(const Client& client)
 {
 	std::string client_nick = client.getNickName();
 
-	if (_userLimit >= _clients.size())
-		return (false);
-
+	// if (_userLimit >= _clients.size())
+	// 	return (false);
+	std::cout << "((( " << client_nick << ")))\n";
 	_clients.push_back(client_nick);
 	return (true);
 }

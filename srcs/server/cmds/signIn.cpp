@@ -13,7 +13,7 @@ void Server::signIn(Client& client)
 		sendMsgToClient(client, RSP_UNKNOWNCMD(client.getNickName()));
 
 	if (client.isPassAccepted() 
-		&& !client.getNickName().empty()
+		&& !client.getNickName().empty() && client.getNickName() != "*"
 		&& !client.getUserName().empty() 
 		&& !client.getUserName().empty())
 	{

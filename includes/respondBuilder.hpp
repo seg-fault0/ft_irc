@@ -40,6 +40,13 @@
 #define RSP_CHANNELISFULL(nick, channel) (":irc.server 471 " + nick + " " + channel + " :Cannot join channel (+l)\r\n")
 
 // invite 
-
 #define RSP_INVITING(nick, user, channel)(":irc.server 341 " + std::string(user) + " " + std::string(nick) + std::string(channel)+ "\r\n")
 #define RSP_NOSUCHNICK(user, nick) (":irc.server 401 " + std::string(user) + " " + std::string(nick) + " :No such nickname\r\n")
+
+//privmsg
+#define ERR_NORECIPIENT (":irc.server 411 * :No recipient given (PRIVMSG)\r\n")
+#define ERR_NOTEXTTOSEND ":irc.server 412 * :No text to send\r\n"
+#define ERR_NOSUCHNICK(nick, target) (":irc.server 401 " + nick + " " + target + " :No such nick/channel\r\n")
+#define ERR_NOSUCHCHANNEL(nick, channel) (":irc.server 403 " + nick + " " + channel + " :No such channel\r\n")
+#define ERR_CANNOTSENDTOCHAN(nick, channel) (":irc.server 404 " + nick + " " + channel + " :Cannot send to channel\r\n")
+#define RSP_PRIVMSG(nick, user, target, msg)(":" + nick + "!" + user + "@localhost PRIVMSG " + target + " :" + msg + "\r\n")

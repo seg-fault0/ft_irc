@@ -8,6 +8,8 @@ void	Server::cmdManager(Client& client)
 		handleJoinCmd(client);
 	else if (client.request.getCmd() == "PART")
 		handlePartCmd(client);
+	else if (client.request.getCmd() == "PRIVMSG")
+		handlePrivmsgCmd(client);
 	else
 		sendMsgToClient(client, RSP_UNKNOWNCMD(client.getNickName()));
 }

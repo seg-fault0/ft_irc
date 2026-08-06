@@ -11,9 +11,9 @@ void	Server::handlePartCmd(Client& client)
 	else
 	{
 		if (client.request.getAllParams().size() >= 2)
-			sendMsgToChannel(client.request.getParam(0), RSP_PART(client.getNickName(), client.getUserName(), client.request.getParam(0), client.request.getParam(1)));
+			sendMsgToChannel("", client.request.getParam(0), RSP_PART(client.getNickName(), client.getUserName(), client.request.getParam(0), client.request.getParam(1)));
 		else
-			sendMsgToChannel(client.request.getParam(0), RSP_PART(client.getNickName(), client.getUserName(), client.request.getParam(0), ""));
+			sendMsgToChannel("", client.request.getParam(0), RSP_PART(client.getNickName(), client.getUserName(), client.request.getParam(0), ""));
 
 		client.channelDel(client.request.getParam(0));
 		getChannel(client.request.getParam(0))->clientKick(client);

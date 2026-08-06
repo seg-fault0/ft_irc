@@ -28,7 +28,7 @@ Channel*	Server::getChannel(const std::string& channel_name)
 /*******      SEND MSG TO ALL CHANNEL CLIENTS     *******/
 /********************************************************/
 
-void		Server::sendMsgToChannel(const std::string& channel_name, const std::string& msg)
+void		Server::sendMsgToChannel(const std::string& sender, const std::string& channel_name, const std::string& msg)
 {
 	Channel* channel = getChannel(channel_name);
 
@@ -40,7 +40,7 @@ void		Server::sendMsgToChannel(const std::string& channel_name, const std::strin
 	for (size_t i = 0; i < clientsNickNames.size(); i++)
 	{
 		Client* client = getClientByNickName(clientsNickNames[i]);
-		if (client)
+		if (client && client->getNickName() != sender)
 			sendMsgToClient(*client, msg);
 	}
 }

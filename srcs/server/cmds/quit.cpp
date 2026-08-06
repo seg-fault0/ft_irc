@@ -13,7 +13,7 @@ void Server::handleQuitCmd(Client& client)
 		if (!channel)
 			continue;
 
-		sendMsgToChannel(channel->getName(), RSP_QUIT(client.getNickName(), client.getUserName(), reason));
+		sendMsgToChannel("", channel->getName(), RSP_QUIT(client.getNickName(), client.getUserName(), reason));
 	
 		channel->clientKick(client);
 	}

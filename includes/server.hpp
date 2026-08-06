@@ -48,7 +48,6 @@ class Server
 		void		createNewClient(void);
 		void		deleteClientFromServer(Client& client);
 		void		manageClient(Client& client);
-		std::string	getClientNickNameFromFd(file fd);
 		Client*		getClientByNickName(const std::string&);
 
 	//channel methods

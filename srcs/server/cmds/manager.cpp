@@ -8,6 +8,8 @@ void	Server::cmdManager(Client& client)
 		handleQuitCmd(client);
 	else if (cmd == "JOIN")
 		handleJoinCmd(client);
+	else if (cmd == "PART")
+		handlePartCmd(client);
 	else
 		sendMsgToClient(client, RSP_UNKNOWNCMD(client.getNickName()));
 }

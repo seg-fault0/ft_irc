@@ -30,3 +30,8 @@
 
 //quit
 #define RSP_QUIT(nick, user, reason)(":" + (nick) + "!" + (user) + "@localhost QUIT :" + (reason) + "\r\n")
+
+//part
+#define RSP_NOSUCHCHANNEL(nick, channel)(":irc.server 403 " + nick + " " + channel + " :No such channel\r\n")
+#define RSP_NOTONCHANNEL(nick, channel)(":irc.server 442 " + nick + " " + channel + " :You're not on that channel\r\n")
+#define RSP_PART(nick, user, channel, msg)(":" + nick + "!" + user + "@localhost PART " + channel + " :" + msg + "\r\n")

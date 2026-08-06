@@ -64,6 +64,7 @@ class Server
 		void	handleUserCmd(Client& client);
 		void	handleQuitCmd(Client& client);
 		void	handleJoinCmd(Client& client);
+		void	handlePartCmd(Client& client);
 
 	//geters
 		int			getPort(void) const ;

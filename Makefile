@@ -21,6 +21,7 @@ SRCS =	srcs/main.cpp					\
 		srcs/server/cmds/user.cpp		\
 		srcs/server/cmds/quit.cpp		\
 		srcs/server/cmds/join.cpp		\
+		srcs/server/cmds/part.cpp		\
 										\
 		srcs/client/client.cpp			\
 		srcs/client/readBuffer.cpp		\
@@ -32,11 +33,12 @@ SRCS =	srcs/main.cpp					\
 		srcs/channel/seters.cpp			\
 		srcs/channel/orthodox.cpp		\
 
-HEADER =	includes/irc.hpp		\
-			includes/exception.hpp	\
-			includes/server.hpp		\
-			includes/client.hpp		\
-			includes/channel.hpp	\
+HEADER =	includes/irc.hpp			\
+			includes/exception.hpp		\
+			includes/server.hpp			\
+			includes/client.hpp			\
+			includes/channel.hpp		\
+			includes/respondBuilder.hpp	\
 
 NAME = ircserver
 

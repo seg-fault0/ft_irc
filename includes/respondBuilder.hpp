@@ -35,3 +35,11 @@
 #define RSP_NOSUCHCHANNEL(nick, channel)(":irc.server 403 " + nick + " " + channel + " :No such channel\r\n")
 #define RSP_NOTONCHANNEL(nick, channel)(":irc.server 442 " + nick + " " + channel + " :You're not on that channel\r\n")
 #define RSP_PART(nick, user, channel, msg)(":" + nick + "!" + user + "@localhost PART " + channel + " :" + msg + "\r\n")
+#define RSP_INVITEONLYCHAN(nick, channel) (":irc.server 473 " + nick + " " + channel + " :Cannot join channel (+i)\r\n")
+#define RSP_BADCHANNELKEY(nick, channel) (":irc.server 475 " + nick + " " + channel + " :Cannot join channel (+k)\r\n")
+#define RSP_CHANNELISFULL(nick, channel) (":irc.server 471 " + nick + " " + channel + " :Cannot join channel (+l)\r\n")
+
+// invite 
+
+#define RSP_INVITING(nick, user, channel)(":irc.server 341 " + std::string(user) + " " + std::string(nick) + std::string(channel)+ "\r\n")
+#define RSP_NOSUCHNICK(user, nick) (":irc.server 401 " + std::string(user) + " " + std::string(nick) + " :No such nickname\r\n")

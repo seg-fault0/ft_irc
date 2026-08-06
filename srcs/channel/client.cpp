@@ -24,6 +24,16 @@ bool	Channel::isClientInvited(const Client& client) const
 	return (false);
 }
 
+void	Channel::addToInvitedClient(std::string& user_nick)
+{
+	for (size_t i = 0; i < _invitedClients.size(); i++)
+	{
+		if (_invitedClients[i] == user_nick)
+			return ;
+	}
+	_invitedClients.push_back(user_nick);
+}
+
 bool	Channel::clientAdd(const Client& client)
 {
 	std::string client_nick = client.getNickName();
@@ -53,4 +63,11 @@ void	Channel::clientKick(const Client& client)
 		if (_admins[i] == client_nick)
 			_admins.erase(_admins.begin() + i);
 	}
+}
+
+bool	Channel::isChannelInviteOnly(void)
+{
+	if (!_inviteOnly)
+		return (false);
+	return (true);
 }

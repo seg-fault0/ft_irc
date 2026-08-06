@@ -56,6 +56,16 @@ bool Server::searchNickName(const std::string& nickName)
 	return (false);
 }
 
+bool	Server::searchForClient(const std::string &nick_name)
+{
+	for(size_t i = 1; i < _clients.size(); i++)
+	{
+		if (_clients[i].getNickName() == nick_name)
+			return (true);
+	}
+	return (false);
+}
+
 /**********************************************/
 /**************       MANAGER     *************/
 /**********************************************/

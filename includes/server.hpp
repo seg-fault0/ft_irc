@@ -42,6 +42,7 @@ class Server
 		void	init(int ac, char** av);
 		void	lunch();
 		bool	searchNickName(const std::string& nickName);
+		bool	searchForClient(const std::string &nick_name);
 		void	sendMsgToClient(const Client& client, const std::string& msg);
 		
 	//client methods
@@ -64,6 +65,7 @@ class Server
 		void	handleQuitCmd(Client& client);
 		void	handleJoinCmd(Client& client);
 		void	handlePartCmd(Client& client);
+		void	handleInviteCmd(Client& client);
 
 	//geters
 		int			getPort(void) const ;

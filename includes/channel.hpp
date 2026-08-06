@@ -25,9 +25,12 @@ class Channel
 		bool	isClientInvited(const Client&) const;
 		bool	clientAdd(const Client&);
 		void	clientKick(const Client&);
+		void	addToInvitedClient(std::string& user_nick);
+		bool	isChannelInviteOnly(void);
 		
 		bool	isAdmin(const Client&) const;
 		void	adminAdd(const Client&);
+
 	
 		std::string					getTopic(void) const ;
 		std::string					getPassWord(void) const ;

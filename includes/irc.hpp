@@ -27,6 +27,7 @@
 //non std
 # include "exception.hpp"
 # include "server.hpp"
+# include "request.hpp"
 # include "client.hpp"
 # include "respondBuilder.hpp"
 # include "channel.hpp"

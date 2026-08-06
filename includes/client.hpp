@@ -2,12 +2,13 @@
 
 # include "irc.hpp"
 
+class Request;
+
 class Client
 {
 	private:
 		int							_fd;
 		std::string					_buffer;
-		std::vector<std::string>	_cmds;
 		std::string					_nickName;
 		std::string					_userName;
 		std::string					_realName;
@@ -15,6 +16,9 @@ class Client
 		bool						_isRegistered;
 		std::vector<std::string>	_channels;
 
+	public:
+		Request	request;
+	
 	public:
 	//orthodox
 		Client();
@@ -31,9 +35,7 @@ class Client
 	//geters
 		int							getFd(void) const;
 		std::string					getBuffer(void) const;
-		std::vector<std::string>	getAllCmd(void) const;
 		std::vector<std::string>	getChannels(void) const ;
-		std::string					getCmd(int) const ;
 		std::string					getNickName(void) const;
 		std::string					getUserName(void) const;
 		std::string					getRealName(void) const;

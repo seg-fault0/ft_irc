@@ -2,15 +2,13 @@
 
 void Server::signIn(Client& client)
 {
-	std::string cmd = client.getCmd(0);
-
-	if (cmd == "PASS")
+	if (client.request.getCmd() == "PASS")
 		handlePassCmd(client);
-	else if (cmd == "NICK")
+	else if (client.request.getCmd() == "NICK")
 		handleNickCmd(client);
-	else if (cmd == "USER")
+	else if (client.request.getCmd() == "USER")
 		handleUserCmd(client);
-	else if (cmd == "CAP");
+	else if (client.request.getCmd() == "CAP");
 	else
 		sendMsgToClient(client, RSP_UNKNOWNCMD(client.getNickName()));
 

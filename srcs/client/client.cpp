@@ -36,12 +36,7 @@ std::string	Client::getRealName(void) const { return(_realName); }
 
 std::string					Client::getBuffer(void) const { return (_buffer); }
 
-std::vector<std::string>	Client::getAllCmd(void) const{ return (_cmds); }
-
 std::vector<std::string>	Client::getChannels(void) const { return (_channels); };
-
-std::string					Client::getCmd(int i) const { return (_cmds[i]); }
-
 
 bool		Client::isPassAccepted(void) const { return(_isPassAccepted); }
 

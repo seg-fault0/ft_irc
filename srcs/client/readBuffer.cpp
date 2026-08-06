@@ -3,7 +3,6 @@
 void	Client::readBuffer(Server& server)
 {
 	_buffer.clear();
-	_cmds.clear();
 	
 	char 	buffer[1024];
 	int bytes = recv(_fd, buffer, sizeof(buffer) - 1, 0);
@@ -21,5 +20,6 @@ void	Client::readBuffer(Server& server)
 	{
 		_buffer.erase(_buffer.size() - 1);
 	}
-	_cmds = ft_split(_buffer, ' ');
+	
+	request.parse(_buffer);
 }

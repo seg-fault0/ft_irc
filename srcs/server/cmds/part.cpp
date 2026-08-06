@@ -2,19 +2,20 @@
 
 void	Server::handlePartCmd(Client& client)
 {
-	if (client.getAllCmd().size() <= 1)
+	if (client.request.getAllParams().size() < 1)
 		sendMsgToClient(client, RSP_NEEDMOREPARAMS(client.getNickName()));
-	else if (!hasChannel(client.getCmd(1)))
-		sendMsgToClient(client, RSP_NOSUCHCHANNEL(client.getNickName(), client.getCmd(1)));
-	else if (!client.isChannelMember(client.getCmd(1)))
-		sendMsgToClient(client, RSP_NOTONCHANNEL(client.getNickName(), client.getCmd(1)));
+	else if (!hasChannel(client.request.getParam(0)))
+		sendMsgToClient(client, RSP_NOSUCHCHANNEL(client.getNickName(), client.request.getParam(0)));
+	else if (!client.isChannelMember(client.request.getParam(0)))
+		sendMsgToClient(client, RSP_NOTONCHANNEL(client.getNickName(), client.request.getParam(0)));
 	else
 	{
-		if (client.getAllCmd().size() >= 3)
-			sendMsgToChannel(client.getCmd(1), RSP_PART(client.getNickName(), client.getUserName(), client.getCmd(1), client.getCmd(2)));
+		if (client.request.getAllParams().size() >= 2)
+			sendMsgToChannel(client.request.getParam(0), RSP_PART(client.getNickName(), client.getUserName(), client.request.getParam(0), client.request.getParam(1)));
 		else
-			sendMsgToChannel(client.getCmd(1), RSP_PART(client.getNickName(), client.getUserName(), client.getCmd(1), ""));
-		client.channelDel(client.getCmd(1));
-		getChannel(client.getCmd(1))->clientKick(client);
+			sendMsgToChannel(client.request.getParam(0), RSP_PART(client.getNickName(), client.getUserName(), client.request.getParam(0), ""));
+
+		client.channelDel(client.request.getParam(0));
+		getChannel(client.request.getParam(0))->clientKick(client);
 	}
 }

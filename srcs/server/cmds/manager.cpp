@@ -2,13 +2,11 @@
 
 void	Server::cmdManager(Client& client)
 {
-	const std::string& cmd = client.getCmd(0);
-
-	if (cmd == "QUIT")
+	if (client.request.getCmd() == "QUIT")
 		handleQuitCmd(client);
-	else if (cmd == "JOIN")
+	else if (client.request.getCmd() == "JOIN")
 		handleJoinCmd(client);
-	else if (cmd == "PART")
+	else if (client.request.getCmd() == "PART")
 		handlePartCmd(client);
 	else
 		sendMsgToClient(client, RSP_UNKNOWNCMD(client.getNickName()));

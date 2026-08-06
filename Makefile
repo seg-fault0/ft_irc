@@ -26,6 +26,7 @@ SRCS =	srcs/main.cpp					\
 		srcs/client/client.cpp			\
 		srcs/client/readBuffer.cpp		\
 		srcs/client/channel.cpp			\
+		srcs/client/request.cpp			\
 										\
 		srcs/channel/client.cpp			\
 		srcs/channel/admin.cpp			\
@@ -39,6 +40,7 @@ HEADER =	includes/irc.hpp			\
 			includes/client.hpp			\
 			includes/channel.hpp		\
 			includes/respondBuilder.hpp	\
+			includes/request.hpp		\
 
 NAME = ircserver
 

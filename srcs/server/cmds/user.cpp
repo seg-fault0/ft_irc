@@ -1,19 +1,12 @@
 #include "irc.hpp"
 
-void Server::handleUserCmd(Client& client)
+void	Server::handleUserCmd(Client& client)
 {
-	if (client.getAllCmd().size() < 5 || client.getCmd(4)[0] != ':')
+	if (client.request.getAllParams().size() < 4)
 		sendMsgToClient(client, RSP_NEEDMOREPARAMS(client.getNickName()));
 	else
 	{
-		client.setUserName(client.getCmd(1));
-		std::string tmp;
-		for(int i = 4; i < client.getAllCmd().size(); i++)
-		{
-			tmp += client.getCmd(i);
-			if (i + 1 < client.getAllCmd().size())
-				tmp += " ";
-		}
-		client.setRealName(tmp);
+		client.setUserName(client.request.getParam(0));
+		client.setRealName(client.request.getParam(3));
 	}
 }

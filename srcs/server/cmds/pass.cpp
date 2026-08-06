@@ -2,7 +2,7 @@
 
 void Server::handlePassCmd(Client& client)
 {
-	std::string	pass = client.getCmd(1);
+	std::string	pass = client.request.getParam(0);
 	int			fd = client.getFd();
 
 	if (client.isPassAccepted() == true)

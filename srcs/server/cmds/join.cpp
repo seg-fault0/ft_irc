@@ -7,11 +7,42 @@ void	Server::handleJoinCmd(Client& client)
 
 	std::string	channel_name = client.request.getParam(0);
 
-	if (!hasChannel(channel_name))
-		_channels.push_back(Channel(channel_name, client));
+	std::vector<std::string> channels = ft_split(channel_name, ',');
+	std::vector<std::string> keys = ft_split(client.request.getParam(1), ',');
 
-	client.channelAdd(channel_name);
-
+	for (size_t i = 0; i < channels.size(); i++)
+	{
+		const std::string& chan_name = channels[i];
+		if (chan_name.empty() || (chan_name[0] != '#' && chan_name[0] != '&'))
+		{
+			RSP_NOSUCHCHANNEL(client.getNickName(), chan_name);
+			return;
+		}
+		Channel *chan = getChannel(chan_name);
+		if (chan != NULL)
+		{
+			if (chan->isClient(client))
+				continue;
+			if (chan->isChannelInviteOnly() && !chan->isClientInvited(client))
+            {
+                sendMsgToClient(client, RSP_INVITEONLYCHAN(client.getNickName(), chan_name));
+                continue;
+            }
+			if(!chan->getPassWord().empty())
+			{
+				if (keys[i] != chan->getPassWord())
+				{
+					RSP_BADCHANNELKEY(client.getNickName(), chan_name);
+					return;
+				}
+				if (!chan->clientAdd(client))
+					RSP_CHANNELISFULL(client.getNickName(), chan_name);
+			}
+		}
+		else
+			_channels.push_back(Channel(chan_name, client));
+		client.channelAdd(chan_name);
+	}
 	sendMsgToChannel("", channel_name, RSP_JOIN(client.getNickName(), client.getUserName(), channel_name));
 	sendMsgToClient(client, RSP_NOTOPIC(client.getNickName(), channel_name));
 	sendMsgToClient(client, RSP_NAMREPLY(client.getNickName(), channel_name, getChannel(channel_name)->getClientsStr()));

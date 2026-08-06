@@ -23,7 +23,8 @@ class Channel
 
 		bool	isClient(const Client&) const;
 		bool	isClientInvited(const Client&) const;
-		bool	clientAdd(const Client&);
+		bool clientAdd(const Client &);
+		bool NewFunction(bool &retFlag);
 		void	clientKick(const Client&);
 		void	addToInvitedClient(std::string& user_nick);
 		bool	isChannelInviteOnly(void);

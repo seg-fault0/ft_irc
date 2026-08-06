@@ -14,10 +14,7 @@ void	Server::handleJoinCmd(Client& client)
 	{
 		const std::string& chan_name = channels[i];
 		if (chan_name.empty() || (chan_name[0] != '#' && chan_name[0] != '&'))
-		{
-			RSP_NOSUCHCHANNEL(client.getNickName(), chan_name);
-			return;
-		}
+			return (sendMsgToClient(client, RSP_NOSUCHCHANNEL(client.getNickName(), chan_name)));
 		Channel *chan = getChannel(chan_name);
 		if (chan != NULL)
 		{
@@ -31,13 +28,10 @@ void	Server::handleJoinCmd(Client& client)
 			if(!chan->getPassWord().empty())
 			{
 				if (keys[i] != chan->getPassWord())
-				{
-					RSP_BADCHANNELKEY(client.getNickName(), chan_name);
-					return;
-				}
-				if (!chan->clientAdd(client))
-					RSP_CHANNELISFULL(client.getNickName(), chan_name);
+					return (sendMsgToClient(client, RSP_BADCHANNELKEY(client.getNickName(), chan_name)));
 			}
+			if (!chan->clientAdd(client))
+				return (sendMsgToClient(client, RSP_CHANNELISFULL(client.getNickName(), chan_name)));
 		}
 		else
 			_channels.push_back(Channel(chan_name, client));

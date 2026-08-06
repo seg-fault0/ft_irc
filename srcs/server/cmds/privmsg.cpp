@@ -19,7 +19,7 @@ void Server::handlePrivmsgCmd(Client& client)
 		if (!client.isChannelMember(target))
 			return (sendMsgToClient(client, ERR_CANNOTSENDTOCHAN(client.getNickName(), target)));
 
-		sendMsgToChannel("", target, RSP_PRIVMSG(client.getNickName(), client.getUserName(), target, message));
+		sendMsgToChannel(client.getNickName(), target, RSP_PRIVMSG(client.getNickName(), client.getUserName(), target, message));
 	}
 	else
 	{

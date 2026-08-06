@@ -40,7 +40,6 @@ bool	Channel::clientAdd(const Client& client)
 
 	// if (_userLimit >= _clients.size())
 	// 	return (false);
-	std::cout << "((( " << client_nick << ")))\n";
 	_clients.push_back(client_nick);
 	return (true);
 }

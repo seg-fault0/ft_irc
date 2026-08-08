@@ -8,7 +8,7 @@ void Server::handlePassCmd(Client& client)
 	if (client.isPassAccepted() == true)
 		return ;
 	else if(pass != _passWord)
-		sendMsgToClient(client, RSP_BADPASSWORD(client.getNickName()));
+		sendMsgToClient(client, BADPASSWORD(client.getNickName()));
 	else
 		client.setPass(true);
 }

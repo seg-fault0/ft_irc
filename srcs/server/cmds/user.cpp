@@ -3,7 +3,7 @@
 void	Server::handleUserCmd(Client& client)
 {
 	if (client.request.getAllParams().size() < 4)
-		sendMsgToClient(client, RSP_NEEDMOREPARAMS(client.getNickName()));
+		sendMsgToClient(client, NEEDMOREPARAMS(client.getNickName()));
 	else
 	{
 		client.setUserName(client.request.getParam(0));

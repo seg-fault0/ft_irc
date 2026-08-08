@@ -10,7 +10,7 @@ void Server::signIn(Client& client)
 		handleUserCmd(client);
 	else if (client.request.getCmd() == "CAP");
 	else
-		sendMsgToClient(client, RSP_UNKNOWNCMD(client.getNickName()));
+		sendMsgToClient(client, UNKNOWNCMD(client.getNickName()));
 
 	if (client.isPassAccepted() 
 		&& !client.getNickName().empty() && client.getNickName() != "*"
@@ -18,9 +18,9 @@ void Server::signIn(Client& client)
 		&& !client.getUserName().empty())
 	{
 		client.setRegistered(true);
-		sendMsgToClient(client, RSP_WELCOME(client.getNickName(), client.getUserName()));
-		sendMsgToClient(client, RSP_HOST(client.getNickName()));
-		sendMsgToClient(client, RSP_CREATED(client.getNickName(), _date));
-		sendMsgToClient(client, RSP_INFO(client.getNickName()));
+		sendMsgToClient(client, WELCOME(client.getNickName(), client.getUserName()));
+		sendMsgToClient(client, HOST(client.getNickName()));
+		sendMsgToClient(client, CREATED(client.getNickName(), _date));
+		sendMsgToClient(client, INFO(client.getNickName()));
 	}
 }

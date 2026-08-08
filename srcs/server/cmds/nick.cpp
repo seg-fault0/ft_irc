@@ -22,20 +22,20 @@ void	Server::handleNickCmd(Client& client)
 {
 	if (client.request.getAllParams().empty())
 	{
-		sendMsgToClient(client, RSP_NONICKNAMEGIVEN(client.getNickName()));
+		sendMsgToClient(client, NONICKNAMEGIVEN(client.getNickName()));
 		return ;
 	}
 	std::string	nick = client.request.getParam(0);
 	if (!isValidNickName(nick))
 	{
-		sendMsgToClient(client, RSP_ERRONEUSNICKNAME(client.getNickName(), nick));
+		sendMsgToClient(client, ERRONEUSNICKNAME(client.getNickName(), nick));
 		return;
 	}
 	if (nick.size() > 30)
 		nick = nick.substr(0, 30);
 	if (searchNickName(nick) == true) 
 	{
-		sendMsgToClient(client, RSP_NICKALREADYUSED(client.getNickName(), nick));
+		sendMsgToClient(client, NICKALREADYUSED(client.getNickName(), nick));
 		return ;
 	}
 	if (client.getNickName() == nick)
@@ -46,11 +46,11 @@ void	Server::handleNickCmd(Client& client)
 	{
 		std::string oldNick = client.getNickName();
 		client.setNickName(nick);
-		sendMsgToClient(client, RSP_NICK_BROADCAST(oldNick, client.getUserName(), "localhost", nick));
+		sendMsgToClient(client, NICK_BROADCAST(oldNick, client.getUserName(), "localhost", nick));
 		for (size_t i = 0 ; i < client.getChannels().size(); i++)
 		{
 			Channel *channel = getChannel(client.getChannels()[i]);
-			sendMsgToChannel(oldNick, channel->getName(), RSP_NICK_BROADCAST(oldNick, client.getUserName(), "localhost", nick));
+			sendMsgToChannel(oldNick, channel->getName(), NICK_BROADCAST(oldNick, client.getUserName(), "localhost", nick));
 		}
 	}
 }

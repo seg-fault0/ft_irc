@@ -12,6 +12,8 @@ void	Server::cmdManager(Client& client)
 		handlePrivmsgCmd(client);
 	else if (client.request.getCmd() == "INVITE")
 		handleInviteCmd(client);
+	else if (client.request.getCmd() == "NICK")
+		handleNickCmd(client);
 	else
 		sendMsgToClient(client, RSP_UNKNOWNCMD(client.getNickName()));
 }

@@ -6,8 +6,14 @@
 # define RSP_BADPASSWORD(nick)(":irc.server 464 " + (nick) + " :Incorrect password\r\n")
 
 //nickname
-# define RSP_NICKALREADYUSED(nick)(":irc.server 433 " + (nick) + " : NickName already used\r\n")
-# define RSP_NICKNOTALLOWED(nick)(":irc.server 432 " + (nick) + " : NickName already used\r\n")
+# define RSP_NICKALREADYUSED(client, nick) (":irc.server 433 " + (client) + " " + (nick) + " :Nickname is already in use\r\n")
+# define RSP_ERRONEUSNICKNAME(client, nick) (":irc.server 432 " + (client) + " " + (nick) + " :Erroneous nickname\r\n")
+# define RSP_NICK_BROADCAST(old_nick, user, host, new_nick) (":" + (old_nick) + "!" + (user) + "@" + (host) + " NICK :" + (new_nick) + "\r\n")
+# define RSP_NONICKNAMEGIVEN(client) (":irc.server 431 " + (client) + " :No nickname given\r\n")
+# define RSP_ERRONEUSNICKNAME(client, nick) (":irc.server 432 " + (client) + " " + (nick) + " :Erroneous nickname\r\n")
+
+
+
 
 //cmd
 # define RSP_UNKNOWNCMD(nick)(":irc.server 421 " + (nick) + ": Uknown command\r\n")

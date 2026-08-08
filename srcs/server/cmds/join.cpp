@@ -27,7 +27,7 @@ void	Server::handleJoinCmd(Client& client)
             }
 			if(!chan->getPassWord().empty())
 			{
-				if (keys[i] != chan->getPassWord())
+				if (i < keys.size() && keys[i] != chan->getPassWord())
 					return (sendMsgToClient(client, RSP_BADCHANNELKEY(client.getNickName(), chan_name)));
 			}
 			if (!chan->clientAdd(client))

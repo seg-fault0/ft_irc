@@ -23,6 +23,7 @@ SRCS =	srcs/main.cpp					\
 		srcs/server/cmds/join.cpp		\
 		srcs/server/cmds/part.cpp		\
 		srcs/server/cmds/privmsg.cpp	\
+		srcs/server/cmds/invite.cpp		\
 										\
 		srcs/client/client.cpp			\
 		srcs/client/readBuffer.cpp		\
